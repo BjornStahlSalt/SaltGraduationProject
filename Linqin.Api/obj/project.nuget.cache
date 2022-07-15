@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n/kIvnGw9RpXE1uZV3HzwVElOnQc2tzs0RJ1VrNF9+zpvrW2wLAZLRH0JI6phH+fs0Fp21bnhrLb2peepW0HNQ==",
+  "dgSpecHash": "zmsR3ZcTmdGkX5yxNO3Cv/Q1hJ/ryWoT3O6HuRkOBE941z4te7kmXKmNFzbqe4ssqX6Oy46+AAkktbe4yLz1tQ==",
   "success": true,
-  "projectFilePath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/graduationProjectBS/Linqin.Api/Linqin.Api.csproj",
+  "projectFilePath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
   "expectedPackageFiles": [
     "/Users/saltdev/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",

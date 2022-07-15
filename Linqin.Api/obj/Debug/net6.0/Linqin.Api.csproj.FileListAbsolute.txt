@@ -1,0 +1,7 @@
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/Debug/net6.0/Linqin.Api.csproj.AssemblyReference.cache
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/Debug/net6.0/Linqin.Api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/Debug/net6.0/Linqin.Api.AssemblyInfoInputs.cache
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/Debug/net6.0/Linqin.Api.AssemblyInfo.cs
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/Debug/net6.0/Linqin.Api.csproj.CoreCompileInputs.cache
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/Debug/net6.0/Linqin.Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/Debug/net6.0/Linqin.Api.MvcApplicationPartsAssemblyInfo.cache
