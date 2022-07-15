@@ -22,5 +22,7 @@ public class GeometryShapes
     public int Id { get; set; }
     public Shape Shape { get; set; }
     public Color Color { get; set; }
+    public int PriorityValue { get; set; }
+    public string ImageUrl { get; set; }
 }
 
