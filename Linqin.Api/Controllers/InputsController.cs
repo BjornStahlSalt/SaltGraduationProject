@@ -15,7 +15,8 @@ public class InputsController : ControllerBase
   [HttpPost]
   public ActionResult<List<GeometryShapes>> ExecuteQuery(string query, List<GeometryShapes> inputCollection)
   {
-    query = "inputCollection.Where(s => s.Color == Color.Red)"
+    query = "inputCollection.Where(s => s.Color == Color.Red)";
+    
     throw new NotImplementedException();
   }
 
