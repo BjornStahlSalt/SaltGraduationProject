@@ -22,4 +22,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+var test = Linqin.Api.StringTranslator.Execute("1+2");
+Console.WriteLine(test);
+
 app.Run();

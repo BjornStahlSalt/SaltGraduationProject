@@ -1,7 +1,8 @@
 using System.CodeDom.Compiler;
 using System.Reflection;
 using System.Text;
-using Microsoft.CSharp;
+using Microsoft.CodeDom.Providers.DotNetCompilerPlatform;
+
 
 namespace Linqin.Api;
 
@@ -62,10 +63,12 @@ public static class StringTranslator
 
         return builder.ToString();
     }
-    private static object Execute(string content)
+    public static object Execute(string content)
     {
         // New virtual compiler is created to be able to use CompileAssemblyFromSource()
+        // var codeProvider = new CSharpCodeProvider();
         var codeProvider = new CSharpCodeProvider();
+
         // settings for virtual compiler 
         var compilerParameters = new CompilerParameters
         {
