@@ -93,14 +93,14 @@ public class StringTranslator
   public static List<int> ExecuteQuery()
   {
     var linqMethods = new Dictionary<string, Func<IEnumerable<int>, string, IEnumerable<int>>>();
-    linqMethods.Add(".Where", (input, expression) => input.Where(s => IsTrue(s, expression)));
+    linqMethods.Add(".Where", (input, expression) => input.Where(s => EvaluateBool(s, expression)));
     linqMethods.Add(".OrderBy", (input, expression) => input.OrderBy(s => s));
+    linqMethods.Add(".Distinct", (input, expression) => input.Distinct());
 
-    var input = ".Where(s => s > 1).Where(s => s < 7)";
+    var input = ".Where(s => s > 1).Where(s => s < 7).OrderBy(s => s).Distinct()";
     var methods = input.Split(new char[] { '(', ')' });
     var shapes = new List<int> { 1, 4, 5, 7, 2, 9, 2, 6, 1 };
 
-    // var methods = input.Split('.');
     var method = methods[0];
     var exp = string.Join("", methods[1].Skip(5));
     var result = linqMethods[method](shapes.AsEnumerable<int>(), exp);
@@ -108,16 +108,13 @@ public class StringTranslator
     for (int i = 2; i < methods.Length; i += 2)
     {
       if (methods[i] != "")
-        result = linqMethods[methods[i]](shapes, string.Join("", methods[i + 1].Skip(5)));
-      // result = linqMethods[methods[i]](result);
+        result = linqMethods[methods[i]](result, string.Join("", methods[i + 1].Skip(5)));
     }
 
-    var test = result.ToList();
-
-    return test;
+    return result.ToList();
   }
 
-  private static bool IsTrue(int s, string expression)
+  private static bool EvaluateBool(int s, string expression)
   {
     var parts = expression.Split(" ");
     var value = int.Parse(parts[2]);

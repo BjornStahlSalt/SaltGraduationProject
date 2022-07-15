@@ -22,7 +22,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-var test = Linqin.Api.StringTranslator.ExecuteQuery();
-Console.WriteLine(test);
+// var test = Linqin.Api.StringTranslator.ExecuteQuery();
+var startCollection = new List<int> { 1, 4, 5, 7, 2, 9, 2, 6, 1 };
+RoslynCore.EmitDemo.ExecuteString(".Where(s => s > 1).Where(s => s < 7).OrderBy(s => s).Distinct()", startCollection);
 
 app.Run();

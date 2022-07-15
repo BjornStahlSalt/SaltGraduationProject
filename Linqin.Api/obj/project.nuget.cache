@@ -1,27 +1,33 @@
 {
   "version": 2,
-  "dgSpecHash": "jUUWeavBA2z6uJcS2eoQBV/b7Gnlnvz2EZdgnz5/IjOFRbIHLJU+fi0xeyeE+bmu7mmE2DsFYfx/rC1ofO/SEA==",
+  "dgSpecHash": "/5sUR8+ji/lP8n3urwUZZmR3HXYYajBuN9CFjQEmS1MgrNnvbHlXQXGPGEwJmx4Ir9FzicSBOTSsGjJ8hU/4wg==",
   "success": true,
   "projectFilePath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
   "expectedPackageFiles": [
-    "/Users/saltdev/.nuget/packages/microsoft.codedom.providers.dotnetcompilerplatform/3.6.0/microsoft.codedom.providers.dotnetcompilerplatform.3.6.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/microsoft.codeanalysis.common/4.2.0/microsoft.codeanalysis.common.4.2.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/microsoft.codeanalysis.csharp/4.2.0/microsoft.codeanalysis.csharp.4.2.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.collections.immutable/5.0.0/system.collections.immutable.5.0.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.io/4.3.0/system.io.4.3.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.reflection.metadata/5.0.0/system.reflection.metadata.5.0.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.reflection.primitives/4.3.0/system.reflection.primitives.4.3.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.runtime/4.3.0/system.runtime.4.3.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.runtime.loader/4.3.0/system.runtime.loader.4.3.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.text.encoding/4.3.0/system.text.encoding.4.3.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.CodeDom.Providers.DotNetCompilerPlatform 3.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
