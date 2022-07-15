@@ -12,8 +12,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
@@ -22,7 +22,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-var test = Linqin.Api.StringTranslator.Execute("1+2");
+var test = Linqin.Api.StringTranslator.ExecuteQuery();
 Console.WriteLine(test);
 
 app.Run();
