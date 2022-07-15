@@ -1,8 +1,4 @@
-using System.CodeDom.Compiler;
-using System.Reflection;
-using System.CodeDom;
 using System.Text;
-using Microsoft.CodeDom.Providers.DotNetCompilerPlatform;
 using System.Linq;
 
 namespace Linqin.Api;
@@ -97,12 +93,25 @@ public class StringTranslator
   public static List<int> ExecuteQuery()
   {
     var linqMethods = new Dictionary<string, Func<IEnumerable<int>, IEnumerable<int>>>();
-    linqMethods.Add("Where", (input) => input.Where(s => s == 1));
-
+    linqMethods.Add("Where", (input) => input.Where(s => s > 1));
+    linqMethods.Add("OrderBy", (input) => input.OrderBy(s => s));
+    
+    var input = "Where(s => s > 4).Where(s => s > 7).OrderBy(s => s)";
+    var splitBy = input.Split(new char[]{'(',')'}).ToList();
     var shapes = new List<int> { 1, 4, 5, 7, 2, 9, 2, 6, 1 };
-    var test = shapes.Where(s => s == 0);
 
-    var result = linqMethods["Where"](shapes);
+    var methods = input.Split('.');
+    var result = linqMethods[methods[0]](shapes);
+
+    for(int i = 1; i < methods.Length; i++)
+    {
+     result = linqMethods[methods[i]](result);    
+    }
+
+
+    
     return result.ToList();
   }
+
+
 }
