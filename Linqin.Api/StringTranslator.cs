@@ -92,26 +92,43 @@ public class StringTranslator
 
   public static List<int> ExecuteQuery()
   {
-    var linqMethods = new Dictionary<string, Func<IEnumerable<int>, IEnumerable<int>>>();
-    linqMethods.Add("Where", (input) => input.Where(s => s > 1));
-    linqMethods.Add("OrderBy", (input) => input.OrderBy(s => s));
-    
-    var input = "Where(s => s > 4).Where(s => s > 7).OrderBy(s => s)";
-    var splitBy = input.Split(new char[]{'(',')'}).ToList();
+    var linqMethods = new Dictionary<string, Func<IEnumerable<int>, string, IEnumerable<int>>>();
+    linqMethods.Add(".Where", (input, expression) => input.Where(s => IsTrue(s, expression)));
+    linqMethods.Add(".OrderBy", (input, expression) => input.OrderBy(s => s));
+
+    var input = ".Where(s => s > 1).Where(s => s < 7)";
+    var methods = input.Split(new char[] { '(', ')' });
     var shapes = new List<int> { 1, 4, 5, 7, 2, 9, 2, 6, 1 };
 
-    var methods = input.Split('.');
-    var result = linqMethods[methods[0]](shapes);
+    // var methods = input.Split('.');
+    var method = methods[0];
+    var exp = string.Join("", methods[1].Skip(5));
+    var result = linqMethods[method](shapes.AsEnumerable<int>(), exp);
 
-    for(int i = 1; i < methods.Length; i++)
+    for (int i = 2; i < methods.Length; i += 2)
     {
-     result = linqMethods[methods[i]](result);    
+      if (methods[i] != "")
+        result = linqMethods[methods[i]](shapes, string.Join("", methods[i + 1].Skip(5)));
+      // result = linqMethods[methods[i]](result);
     }
 
+    var test = result.ToList();
 
-    
-    return result.ToList();
+    return test;
   }
 
+  private static bool IsTrue(int s, string expression)
+  {
+    var parts = expression.Split(" ");
+    var value = int.Parse(parts[2]);
+
+    if (parts[1] == ">") return s > value;
+    if (parts[1] == "<") return s < value;
+    if (parts[1] == ">=") return s >= value;
+    if (parts[1] == "<=") return s <= value;
+    if (parts[1] == "==") return s == value;
+
+    return false;
+  }
 
 }
