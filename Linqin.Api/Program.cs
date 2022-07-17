@@ -1,3 +1,4 @@
+using CodeRunner;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +7,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<CodeRunnerService>();
 
 var app = builder.Build();
 
@@ -21,8 +23,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-var test = Linqin.Api.StringTranslator.ExecuteQuery();
-Console.WriteLine(test);
 
 app.Run();

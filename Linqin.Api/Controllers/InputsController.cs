@@ -1,3 +1,4 @@
+using CodeRunner;
 using Linqin.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,19 +8,16 @@ namespace Linqin.Api.Controllers;
 [Route("api/[controller]")]
 public class InputsController : ControllerBase
 {
-  public InputsController()
+  private readonly CodeRunnerService _codeRunnerService;
+  public InputsController(CodeRunnerService codeRunnerService)
   {
-
+    _codeRunnerService = codeRunnerService;
   }
 
   [HttpPost]
-  public ActionResult<List<GeometryShapes>> ExecuteQuery(string query, List<GeometryShapes> inputCollection)
+  public async Task<ActionResult<string>> ExecuteLinqQuery(LinqQuery linqQuery)
   {
-    query = "inputCollection.Where(s => s.Color == \"Red\")";
-    
-
-
-    throw new NotImplementedException();
+    return await _codeRunnerService.RunLinqQueryOnList(linqQuery.ListDef, linqQuery.Query);
   }
 
 }
