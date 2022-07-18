@@ -26,6 +26,14 @@ public class InputsController : ControllerBase
     {
       return BadRequest(ex.Message);
     }
+    catch (Exception ex)
+    {
+      return BadRequest(ex.Message);
+    }
+    catch
+    {
+      return BadRequest();
+    }
   }
 
 }

@@ -45,18 +45,18 @@ public class CodeRunnerService
     var code = FormatPayload(listDef, query);
     // try
     // {
-      var fiddleResponse = await _fiddleClient.Run(code);
-      // if (fiddleResponse.ConsoleOutput.Contains("error"))
-      // {
-      //    return fiddleResponse.ConsoleOutput.Split(':').Last();
-      // }
-      return JsonConvert.DeserializeObject<List<GeometryShapes>>(fiddleResponse.ConsoleOutput);
+    var fiddleResponse = await _fiddleClient.Run(code);
+    if (fiddleResponse.ConsoleOutput.Contains("error"))
+    {
+      throw new FiddleClientError(fiddleResponse.ConsoleOutput.Split(':').Last());
     }
-    // catch (FiddleClientError ex)
-    // {
-    //   // return ex.Message;
-    //   return null;
-    // }
+    return JsonConvert.DeserializeObject<List<GeometryShapes>>(fiddleResponse.ConsoleOutput);
+  }
+  // catch (FiddleClientError ex)
+  // {
+  //   // return ex.Message;
+  //   return null;
+  // }
   // }
 }
 
