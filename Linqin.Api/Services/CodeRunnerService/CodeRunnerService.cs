@@ -43,21 +43,21 @@ public class CodeRunnerService
   {
     var listDef = GetListAsString(listOfShapes);
     var code = FormatPayload(listDef, query);
-    try
-    {
+    // try
+    // {
       var fiddleResponse = await _fiddleClient.Run(code);
-      if (fiddleResponse.ConsoleOutput.Contains("error"))
-      {
-        // return fiddleResponse.ConsoleOutput.Split(':').Last();
-      }
+      // if (fiddleResponse.ConsoleOutput.Contains("error"))
+      // {
+      //    return fiddleResponse.ConsoleOutput.Split(':').Last();
+      // }
       return JsonConvert.DeserializeObject<List<GeometryShapes>>(fiddleResponse.ConsoleOutput);
     }
-    catch (FiddleClientError ex)
-    {
-      // return ex.Message;
-      return null;
-    }
-  }
+    // catch (FiddleClientError ex)
+    // {
+    //   // return ex.Message;
+    //   return null;
+    // }
+  // }
 }
 
 

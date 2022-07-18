@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using Linqin.Api.Models;
 using System.Collections.Generic;
+using Fiddle.Exceptions;
+using System.Threading.Tasks;
 
 namespace Linqin.Api.Tests;
 
@@ -42,17 +44,19 @@ public class FiddleTests // controller, coderunner, fiddleclient
     result.Select(s => s.PriorityValue).Should().ContainInOrder(new int[] { 1, 2, 3 });
   }
 
-  // [Fact]
-  // public async void coderunnerservice_should_catch_exception()
-  // {
-  //   // Arrange
-  //   string query = "test.OrderBy(x => xfds);";
-  //   var testService = new CodeRunner.CodeRunnerService();
-  //   // Act
-  //   var result = await testService.RunLinqQueryOnList(listOfShapes, query);
-  //   // Assert
-  //   result.Should().Be(" The name 'xfds' does not exist in the current context\r\n");
-  // }
+  [Fact]
+  public async void coderunnerservice_should_catch_exception()
+  {
+    // Arrange
+    string query = "test.OrderBy(x => xfds);";
+    var testService = new CodeRunner.CodeRunnerService();
+    // Act
+    Func<Task> action = async () => {await testService.RunLinqQueryOnList(listOfShapes, query);}; 
+  
+    // Assert
+    action.Should().ThrowAsync<FiddleClientError>(" The name 'xfds' does not exist in the current context\r\n");
+    //action.Should().Be(" The name 'xfds' does not exist in the current context\r\n");
+  }
 
   [Fact]
   public async void getlistasstring_should_return_stringified_list_of_shapes()
