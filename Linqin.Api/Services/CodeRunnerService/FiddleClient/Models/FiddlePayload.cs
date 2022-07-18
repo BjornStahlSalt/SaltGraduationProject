@@ -26,7 +26,7 @@ public class FiddlePayload
   public string Compiler { get; set; } = "Net45";
   public string ProjectType { get; set; } = "Console";
   public string OriginalFiddleId { get; set; } = "CsCons";
-  public string NuGetPackageVersionIds { get; set; } = "";
+  public string NuGetPackageVersionIds { get; set; } = "89119";
   public string OriginalNuGetPackageVersionIds { get; set; } = "";
   public string TimeOffset { get; set; } = "2";
   public List<object> ConsoleInputLines { get; set; } = new List<object>();
