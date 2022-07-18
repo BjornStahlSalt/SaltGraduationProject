@@ -1,4 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LevelContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LevelContext") ?? throw new InvalidOperationException("Connection string 'LevelContext' not found.")));
 
 // Add services to the container.
 
