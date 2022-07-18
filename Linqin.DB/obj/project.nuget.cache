@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "euOKt7/C2c/borRLG3ytFq5r4r8Ea1yyuNU13Vyh6LtnD/SxPhW0MCbtRkL+kxV2YhJLOyq399E9bOBEWYHGsQ==",
+  "success": true,
+  "projectFilePath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
+  "expectedPackageFiles": [
+    "/Users/saltdev/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
