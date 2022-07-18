@@ -12,11 +12,11 @@ namespace Linqin.Api.Tests;
 public class FiddleTests // controller, coderunner, fiddleclient
 {
 
-  private List<GeometryShapes> listOfShapes = new List<GeometryShapes>
+  private List<ShapeModel> listOfShapes = new List<ShapeModel>
     {
-      new GeometryShapes { Shape = "Circle", Color = "Red", PriorityValue = 2},
-      new GeometryShapes { Shape = "Square", Color = "Green", PriorityValue = 3},
-      new GeometryShapes { Shape = "Triangle", Color = "Blue", PriorityValue = 1}
+      new ShapeModel { Shape = "Circle", Color = "Red", PriorityValue = 2},
+      new ShapeModel { Shape = "Square", Color = "Green", PriorityValue = 3},
+      new ShapeModel { Shape = "Triangle", Color = "Blue", PriorityValue = 1}
     };
 
   [Fact]
@@ -28,7 +28,7 @@ public class FiddleTests // controller, coderunner, fiddleclient
     // Act
     var result = await testService.RunLinqQueryOnList(listOfShapes, query);
     // Assert
-    result.Should().BeOfType(typeof(List<GeometryShapes>));
+    result.Should().BeOfType(typeof(List<ShapeModel>));
   }
 
   [Fact]
@@ -51,8 +51,8 @@ public class FiddleTests // controller, coderunner, fiddleclient
     string query = "test.OrderBy(x => xfds);";
     var testService = new CodeRunner.CodeRunnerService();
     // Act
-    Func<Task> action = async () => {await testService.RunLinqQueryOnList(listOfShapes, query);}; 
-  
+    Func<Task> action = async () => { await testService.RunLinqQueryOnList(listOfShapes, query); };
+
     // Assert
     action.Should().ThrowAsync<FiddleClientError>(" The name 'xfds' does not exist in the current context\r\n");
     //action.Should().Be(" The name 'xfds' does not exist in the current context\r\n");

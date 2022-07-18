@@ -9,7 +9,7 @@ public class CodeRunnerService
 {
   private readonly FiddleClient _fiddleClient = new FiddleClient();
 
-  public string GetListAsString(List<GeometryShapes> listOfShapes)
+  public string GetListAsString(List<ShapeModel> listOfShapes)
   {
     var stringOfShapes = "var test = new []{";
 
@@ -39,7 +39,7 @@ public class CodeRunnerService
     "}}";
   // string test = JsonConvert.SerializeObject(listOfShapes);
   // "Console.WriteLine(String.Join(&quot;, &quot;, res));" +
-  public async Task<List<GeometryShapes>> RunLinqQueryOnList(List<GeometryShapes> listOfShapes, string query)
+  public async Task<List<ShapeModel>> RunLinqQueryOnList(List<ShapeModel> listOfShapes, string query)
   {
     var listDef = GetListAsString(listOfShapes);
     var code = FormatPayload(listDef, query);
@@ -50,7 +50,7 @@ public class CodeRunnerService
     {
       throw new FiddleClientError(fiddleResponse.ConsoleOutput.Split(':').Last());
     }
-    return JsonConvert.DeserializeObject<List<GeometryShapes>>(fiddleResponse.ConsoleOutput);
+    return JsonConvert.DeserializeObject<List<ShapeModel>>(fiddleResponse.ConsoleOutput);
   }
   // catch (FiddleClientError ex)
   // {

@@ -16,7 +16,7 @@ public class InputsController : ControllerBase
   }
 
   [HttpPost]
-  public async Task<ActionResult<List<GeometryShapes>>> ExecuteLinqQuery(LinqQuery linqQuery)
+  public async Task<ActionResult<List<ShapeModel>>> ExecuteLinqQuery(RequestPost linqQuery)
   {
     try
     {
