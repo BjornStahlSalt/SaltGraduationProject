@@ -1,0 +1,6 @@
+/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/CoverletSourceRootsMapping
+/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.csproj.AssemblyReference.cache
+/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.AssemblyInfoInputs.cache
+/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.AssemblyInfo.cs
+/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.csproj.CoreCompileInputs.cache

@@ -8,16 +8,16 @@ namespace Linqin.Api.Controllers;
 [Route("api/[controller]")]
 public class InputsController : ControllerBase
 {
-  private readonly CodeRunnerService _codeRunnerService;
-  public InputsController(CodeRunnerService codeRunnerService)
-  {
-    _codeRunnerService = codeRunnerService;
-  }
+    private readonly CodeRunnerService _codeRunnerService;
+    public InputsController(CodeRunnerService codeRunnerService)
+    {
+        _codeRunnerService = codeRunnerService;
+    }
 
-  [HttpPost]
-  public async Task<ActionResult<string>> ExecuteLinqQuery(LinqQuery linqQuery)
-  {
-    return await _codeRunnerService.RunLinqQueryOnList(linqQuery.ListDef, linqQuery.Query);
-  }
+    [HttpPost]
+    public async Task<ActionResult<string>> ExecuteLinqQuery(LinqQuery linqQuery)
+    {
+        return await _codeRunnerService.RunLinqQueryOnList(linqQuery.ListDef, linqQuery.Query);
+    }
 
 }

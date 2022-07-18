@@ -13,8 +13,6 @@
         "runtime": {
           "Linqin.Api.dll": {}
         }
-      }
-        }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
       "Microsoft.OpenApi/1.2.3": {
@@ -63,6 +61,7 @@
           }
         }
       }
+    }
   },
   "libraries": {
     "Linqin.Api/1.0.0": {

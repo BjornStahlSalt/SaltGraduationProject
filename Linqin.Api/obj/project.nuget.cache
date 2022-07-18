@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "W+yaCqOQQs5Pe7dSIH6oJvBfjX1lu0eHuJc8HR36EImDFwEmi4Uyth1W0s3p/P5PvSM2RGdrIZE4dI1nmLG2bg==",
+  "dgSpecHash": "KYJGGnboCoPLk2t5AreAapY72BYb7jhyG77QzPYvjMTdaBWxn7iXEXtpkLGO1msvZnoerBvpU/GyD2ZlntMCfQ==",
   "success": true,
   "projectFilePath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
   "expectedPackageFiles": [
-    "/Users/saltdev/.nuget/packages/microsoft.codedom.providers.dotnetcompilerplatform/3.6.0/microsoft.codedom.providers.dotnetcompilerplatform.3.6.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
@@ -12,16 +11,5 @@
     "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.CodeDom.Providers.DotNetCompilerPlatform 3.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
