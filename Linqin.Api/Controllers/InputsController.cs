@@ -1,4 +1,5 @@
 using CodeRunner;
+using Fiddle.Exceptions;
 using Linqin.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,14 @@ public class InputsController : ControllerBase
   [HttpPost]
   public async Task<ActionResult<List<GeometryShapes>>> ExecuteLinqQuery(LinqQuery linqQuery)
   {
-    return await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query);
+    try
+    {
+      return Ok(await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query));
+    }
+    catch (FiddleClientError ex)
+    {
+      return BadRequest(ex.Message);
+    }
   }
 
 }
