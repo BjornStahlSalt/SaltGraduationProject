@@ -12,18 +12,20 @@ namespace Linqin.DB.Controllers
     public class LevelsController : Controller
     {
         private readonly LevelContext _context;
+        private readonly TableLevelStorage _storage;
 
         public LevelsController(LevelContext context)
         {
+            _storage = new TableLevelStorage();
             _context = context;
         }
 
         // GET: Levels
         public async Task<IActionResult> Index()
         {
-              return _context.Level != null ? 
-                          View(await _context.Level.ToListAsync()) :
-                          Problem("Entity set 'LevelContext.Level'  is null.");
+            return _context.Level != null ?
+                        View(await _context.Level.ToListAsync()) :
+                        Problem("Entity set 'LevelContext.Level'  is null.");
         }
 
         // GET: Levels/Details/5
@@ -59,9 +61,7 @@ namespace Linqin.DB.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(level);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
             }
             return View(level);
         }
@@ -149,14 +149,14 @@ namespace Linqin.DB.Controllers
             {
                 _context.Level.Remove(level);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LevelExists(int id)
         {
-          return (_context.Level?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Level?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
