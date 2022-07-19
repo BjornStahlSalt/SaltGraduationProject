@@ -1,10 +1,15 @@
 import React from 'react';
+import Level from './Level';
 
 
-function Collection({ shapes }) {
+function Collection({ levels }) {
 
-    return (
-        <div>{ shapes[0].Color } </div>
-    );
+  return (
+    levels.map(level => {
+      return <Level key={ level.id } level={ level } />;
+    })
+  );
+
+
 }
 export default Collection;

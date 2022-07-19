@@ -33,7 +33,9 @@ function App() {
   }, [levels]);
   return (
     <div className="App">
-      {/* <Collection shapes={ levels[0].StartCollection } /> */ }
+      <Collection levels={ levels } />
+      <input type="text" />
+      <button>Submit</button>
     </div>
   );
 }
