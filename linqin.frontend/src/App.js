@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Collection from './Components/Collection/Collection.js';
 
 function App() {
 
+  const [levels, setLevels] = useState([]);
   useEffect(() => {
     const requestOptions = {
       method: 'POST',
@@ -20,25 +22,18 @@ function App() {
       }),
     };
     fetch('https://localhost:7003/api/Inputs', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }, []);
+      .then(response => response.json());
 
+    fetch('https://localhost:7186/api/Levels')
+      .then(response => response.json())
+      .then(data => setLevels(data));
+  }, []);
+  useEffect(() => {
+    console.log(levels);
+  }, [levels]);
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Collection shapes={ levels[0].StartCollection } /> */ }
     </div>
   );
 }
