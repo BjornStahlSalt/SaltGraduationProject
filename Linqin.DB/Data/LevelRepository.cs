@@ -59,12 +59,12 @@ public class LevelRepository
       listOfLevels.Add(
         new GetResponse()
         {
-            Id = level.Id,
-            Title = level.Title,
-            Description = level.Description,
-            LinqMethod = level.LinqMethod,
-            StartCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.StartCollection),
-            ExpectedCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.ExpectedCollection)
+          Id = level.Id,
+          Title = level.Title,
+          Description = level.Description,
+          LinqMethod = level.LinqMethod,
+          StartCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.StartCollection),
+          ExpectedCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.ExpectedCollection)
         }
       );
     }
@@ -95,9 +95,9 @@ public class LevelRepository
     //   Title = 
     // }
   }
-  public async void DeleteData(string id) 
-  { 
-    await _tableClient.DeleteEntityAsync(_partitionKey, id);
+  public void DeleteData(string id)
+  {
+    _tableClient.DeleteEntity(_partitionKey, id);
   }
 
 }

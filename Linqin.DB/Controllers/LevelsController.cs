@@ -81,6 +81,13 @@ namespace Linqin.DB.Controllers
       // return View(level);
     }
 
+    [HttpDelete("{Id}")]
+    public IActionResult DeleteLevel(string Id)
+    {
+      _storage.DeleteData(Id);
+      return NoContent();
+    }
+
 
     [HttpPost]
     //[ValidateAntiForgeryToken]
@@ -147,12 +154,7 @@ namespace Linqin.DB.Controllers
     // }
 
     // POST: Levels/Delete/5
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteLevel(string id)
-    {
-      _storage.DeleteData(id);
-      return RedirectToAction(nameof(GetAllLevels));
-    }
+
 
   }
 }
