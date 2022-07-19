@@ -9,6 +9,7 @@ public class LevelRepository
 {
   private TableClient _tableClient;
   private string _tableName = "Levels";
+  private string _partitionKey = "PartitionKey";
   public LevelRepository()
   {
     CreateTable();
@@ -35,9 +36,8 @@ public class LevelRepository
 
   public string AddData(PostRequest request)
   {
-    var partitionKey = "PartitionKey";
     var rowKey = Guid.NewGuid().ToString();
-    var entity = new TableEntity(partitionKey, rowKey) {
+    var entity = new TableEntity(_partitionKey, rowKey) {
       { "Id", rowKey },
       { "Title", request.Title },
       { "LinqMethod", request.LinqMethod },
@@ -95,10 +95,9 @@ public class LevelRepository
     //   Title = 
     // }
   }
-  // delete on specific entity
-  // public void DeleteData(int id) 
-  // { 
-  // await tableClient.DeleteEntityAsync(partitionKey, lastRowKey);
-  // }
+  public async void DeleteData(string id) 
+  { 
+    await _tableClient.DeleteEntityAsync(_partitionKey, id);
+  }
 
 }

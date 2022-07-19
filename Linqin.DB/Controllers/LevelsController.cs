@@ -12,15 +12,13 @@ namespace Linqin.DB.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  public class LevelsController : Controller
+  public class LevelsController : ControllerBase
   {
-    private readonly LevelContext _context;
     private readonly LevelRepository _storage;
 
-    public LevelsController(LevelContext context)
+    public LevelsController()
     {
       _storage = new LevelRepository();
-      _context = context;
     }
 
     // GET: Levels
@@ -59,10 +57,10 @@ namespace Linqin.DB.Controllers
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-    [HttpGet("{Id}")]
-    public async Task<ActionResult<GetResponse>> GetOneLevel(string Id)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<GetResponse>> GetOneLevel(string id)
     {
-      return Ok(_storage.GetData(Id));
+      return Ok(_storage.GetData(id));
     }
 
     // GET: Levels/Edit/5
@@ -91,6 +89,8 @@ namespace Linqin.DB.Controllers
       var id = _storage.AddData(request);
       return CreatedAtAction(nameof(GetOneLevel), new { id = id }, request);
     }
+
+
 
 
     // // POST: Levels/Edit/5
@@ -146,28 +146,13 @@ namespace Linqin.DB.Controllers
     //   return View(level);
     // }
 
-    // // POST: Levels/Delete/5
-    // [HttpPost, ActionName("Delete")]
-    // [ValidateAntiForgeryToken]
-    // public async Task<IActionResult> DeleteConfirmed(int id)
-    // {
-    //   if (_context.Level == null)
-    //   {
-    //     return Problem("Entity set 'LevelContext.Level'  is null.");
-    //   }
-    //   var level = await _context.Level.FindAsync(id);
-    //   if (level != null)
-    //   {
-    //     _context.Level.Remove(level);
-    //   }
-
-    //   await _context.SaveChangesAsync();
-    //   return RedirectToAction(nameof(Index));
-    // }
-
-    private bool LevelExists(string id)
+    // POST: Levels/Delete/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteLevel(string id)
     {
-      return (_context.Level?.Any(e => e.Id == id)).GetValueOrDefault();
+      _storage.DeleteData(id);
+      return RedirectToAction(nameof(GetAllLevels));
     }
+
   }
 }
