@@ -523,3 +523,6 @@
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/scopedcss/bundle/Linqin.DB.styles.css
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/Linqin.DB.csproj.CopyComplete
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/Linqin.DB.genruntimeconfig.cache
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/bin/Debug/net6.0/Azure.Core.dll
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/bin/Debug/net6.0/Azure.Data.Tables.dll
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/bin/Debug/net6.0/System.Memory.Data.dll

@@ -1,12 +1,14 @@
 using Azure.Data.Tables;
 using Linqin.DB.Models;
 using Azure;
+using Newtonsoft.Json;
 
 namespace Linqin.DB.Data;
 
 public class TableLevelStorage
 {
   private TableClient TableClient { get; set; }
+  private string TableName { get; } = "Levels";
   public TableLevelStorage()
   {
     CreateTable();
@@ -14,13 +16,12 @@ public class TableLevelStorage
   }
   public void CreateTable()
   {
-    string tableName = "Levels";
     var storageUri = Environment.GetEnvironmentVariable("AZURE_TABLE_STORAGE_URI");
     var accountName = Environment.GetEnvironmentVariable("AZURE_TABLE_STORAGE_ACCOUNT_NAME");
     var storageAccountKey = Environment.GetEnvironmentVariable("AZURE_TABLE_STORAGE_ACCOUNT_KEY");
 
     var serviceClient = new TableServiceClient(new Uri(storageUri), new TableSharedKeyCredential(accountName, storageAccountKey));
-    serviceClient.CreateTableIfNotExists(tableName);
+    serviceClient.CreateTableIfNotExists(TableName);
     // Console.WriteLine($"The created table's name is {table.Name}.");
   }
 
@@ -28,7 +29,7 @@ public class TableLevelStorage
   {
     var connectionString = Environment.GetEnvironmentVariable("AZURE_TABLE_STORAGE_CONNECTIONSTRING");
     TableServiceClient serviceClient = new TableServiceClient(connectionString);
-    return new TableClient(connectionString, "CreatedWithCodeTable");
+    return new TableClient(connectionString, TableName);
   }
 
 
@@ -39,10 +40,10 @@ public class TableLevelStorage
     var entity = new TableEntity(partitionKey, rowKey) {
       { "Id", Guid.NewGuid().ToString() },
       { "Title", request.Title },
-      { "Linq Method", request.LinqMethod },
+      { "LinqMethod", request.LinqMethod },
       { "Description", request.Description },
-      { "Start Collection", request.StartCollection },
-      { "Expected Collection", request.ExpectedCollection }
+      { "StartCollection", JsonConvert.SerializeObject(request.StartCollection) },
+      { "ExpectedCollection", JsonConvert.SerializeObject(request.ExpectedCollection) }
       };
     TableClient.AddEntity(entity);
   }
