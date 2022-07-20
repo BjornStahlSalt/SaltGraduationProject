@@ -33,7 +33,7 @@ function App() {
     console.log(levels);
   }, [levels]);
 
-  const handleTitleClick = (level) => { 
+  const handleTitleClick = (level) => {
     //setCurrentLevel({title: level.title, id: level.id, description: level.description, linqMethod: level.linqMethod, startCollection: level.startCollection, expectedCollection: level.expectedCollection});
     setCurrentLevel(level);
   };
@@ -47,11 +47,11 @@ function App() {
         <div>
           {
             levels.map((l) =>
-              <button type="submit" key={l.id} onClick={() => handleTitleClick(l)}>{l.title}</button> )
+              <button type="submit" key={ l.id } onClick={ () => handleTitleClick(l) }>{ l.title }</button>)
           }
         </div>
       </div>
-      <Level level={currentLevel} />
+      <Level level={ currentLevel } />
     </div>
   );
 }
