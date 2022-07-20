@@ -115,7 +115,6 @@
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/ref/Linqin.Api.Tests.dll
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.pdb
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.genruntimeconfig.cache
-/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/CoverletSourceRootsMapping
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/appsettings.Development.json
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/appsettings.json
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
@@ -225,11 +224,8 @@
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.AssemblyInfoInputs.cache
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.AssemblyInfo.cs
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.csproj.CoreCompileInputs.cache
-<<<<<<< HEAD
-=======
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.csproj.CopyComplete
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.dll
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/ref/Linqin.Api.Tests.dll
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.pdb
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/Linqin.Api.Tests.genruntimeconfig.cache
->>>>>>> Linqin.FrontEnd

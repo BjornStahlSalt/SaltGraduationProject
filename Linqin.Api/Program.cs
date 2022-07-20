@@ -18,10 +18,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-<<<<<<< HEAD
-=======
     app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
->>>>>>> Linqin.FrontEnd
 }
 
 app.UseHttpsRedirection();

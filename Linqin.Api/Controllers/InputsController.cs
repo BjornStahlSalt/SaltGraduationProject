@@ -15,33 +15,25 @@ public class InputsController : ControllerBase
         _codeRunnerService = codeRunnerService;
     }
 
-<<<<<<< HEAD
     [HttpPost]
-    public async Task<ActionResult<string>> ExecuteLinqQuery(LinqQuery linqQuery)
+    public async Task<ActionResult<List<ShapeModel>>> ExecuteLinqQuery(RequestPost linqQuery)
     {
-        return await _codeRunnerService.RunLinqQueryOnList(linqQuery.ListDef, linqQuery.Query);
+        try
+        {
+            return Ok(await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query));
+        }
+        catch (FiddleClientError ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch
+        {
+            return BadRequest();
+        }
     }
-=======
-  [HttpPost]
-  public async Task<ActionResult<List<ShapeModel>>> ExecuteLinqQuery(RequestPost linqQuery)
-  {
-    try
-    {
-      return Ok(await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query));
-    }
-    catch (FiddleClientError ex)
-    {
-      return BadRequest(ex.Message);
-    }
-    catch (Exception ex)
-    {
-      return BadRequest(ex.Message);
-    }
-    catch
-    {
-      return BadRequest();
-    }
-  }
->>>>>>> Linqin.FrontEnd
 
 }

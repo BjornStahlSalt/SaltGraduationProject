@@ -1,20 +1,12 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "kjg+0NhXl4qY1GMssiG7ybx3vhwvJ7gSwHZZKgQQmKjNexhnbvPVSDb3kDuPjbOF4zgLJap9i/+r681tBofXfw==",
-=======
-  "dgSpecHash": "MNR0mYTxT49KAdtrIJubfFw7rS23wLHBTYhdU/RsQdzH1uRnfe6Q1Ko208gQ6MkNYuWc3j+eG26FQdJNKyWvDw==",
->>>>>>> Linqin.FrontEnd
+  "dgSpecHash": "4n2gSXeR7uTQXBLC+YKcz1nOdkKyJ3PZLwOuSZ3/JsWrwoUY1XsaUnB9CGtA+TwGpSA3mT8t5/rS/W8QQ6Uqpg==",
   "success": true,
-  "projectFilePath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
+  "projectFilePath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
   "expectedPackageFiles": [
     "/Users/saltdev/.nuget/packages/coverlet.collector/3.1.0/coverlet.collector.3.1.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/fluentassertions/6.7.0/fluentassertions.6.7.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.codecoverage/16.11.0/microsoft.codecoverage.16.11.0.nupkg.sha512",
-<<<<<<< HEAD
-    "/Users/saltdev/.nuget/packages/microsoft.csharp/4.0.1/microsoft.csharp.4.0.1.nupkg.sha512",
-=======
->>>>>>> Linqin.FrontEnd
     "/Users/saltdev/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.net.test.sdk/16.11.0/microsoft.net.test.sdk.16.11.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
@@ -111,5 +103,12 @@
     "/Users/saltdev/.nuget/packages/xunit.extensibility.execution/2.4.1/xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/xunit.runner.visualstudio/2.4.3/xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

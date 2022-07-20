@@ -42,15 +42,6 @@
           "buildMultiTargeting/_._": {}
         }
       },
-      "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
-        "type": "package",
-        "build": {
-          "build/_._": {}
-        },
-        "buildMultiTargeting": {
-          "buildMultiTargeting/_._": {}
-        }
-      },
       "Microsoft.NET.Test.Sdk/16.11.0": {
         "type": "package",
         "dependencies": {
@@ -1702,10 +1693,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-<<<<<<< HEAD
-=======
           "Newtonsoft.Json": "13.0.1",
->>>>>>> Linqin.FrontEnd
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "compile": {
@@ -1866,33 +1854,6 @@
         "lib/netcoreapp1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll",
         "microsoft.codecoverage.16.11.0.nupkg.sha512",
         "microsoft.codecoverage.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
-      "sha512": "LH4OE/76F6sOCslif7+Xh3fS/wUUrE5ryeXAMcoCnuwOQGT5Smw0p57IgDh/pHgHaGz/e+AmEQb7pRgb++wt0w==",
-      "type": "package",
-      "path": "microsoft.extensions.apidescription.server/3.0.0",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Microsoft.Extensions.ApiDescription.Server.props",
-        "build/Microsoft.Extensions.ApiDescription.Server.targets",
-        "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props",
-        "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets",
-        "microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
-        "microsoft.extensions.apidescription.server.nuspec",
-        "tools/Newtonsoft.Json.dll",
-        "tools/dotnet-getdocument.deps.json",
-        "tools/dotnet-getdocument.dll",
-        "tools/dotnet-getdocument.runtimeconfig.json",
-        "tools/net461-x86/GetDocument.Insider.exe",
-        "tools/net461-x86/GetDocument.Insider.exe.config",
-        "tools/net461/GetDocument.Insider.exe",
-        "tools/net461/GetDocument.Insider.exe.config",
-        "tools/netcoreapp2.1/GetDocument.Insider.deps.json",
-        "tools/netcoreapp2.1/GetDocument.Insider.dll",
-        "tools/netcoreapp2.1/GetDocument.Insider.runtimeconfig.json"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
@@ -6073,11 +6034,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
+      "projectUniqueName": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
       "projectName": "Linqin.Api.Tests",
-      "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
+      "projectPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
       "packagesPath": "/Users/saltdev/.nuget/packages/",
-      "outputPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/",
+      "outputPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/saltdev/.nuget/NuGet/NuGet.Config"
@@ -6092,13 +6053,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-<<<<<<< HEAD
             "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
               "projectPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj"
-=======
-            "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
-              "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj"
->>>>>>> Linqin.FrontEnd
             }
           }
         }
@@ -6156,5 +6112,13 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
