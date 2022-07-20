@@ -30,11 +30,11 @@ function Level({ level }) {
       .then(response => {
         if (response.errorMessage === null) {
           setQueryShapes(response.listOfShapes);
-          setCompileError('');
+          setCompileError('Awsome!');
         }
         else {
           setQueryShapes([]);
-          setCompileError(response.errorMessage);
+          setCompileError('You got an error : ' + response.errorMessage);
         }
       })
       .catch(error => console.log(error));
@@ -47,14 +47,14 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      <h3>Title</h3>
+      <h3 className='Level__Title'>{level.title}</h3>
       <p>Prompt</p>
       <div>
         <Collection shapes={level.startCollection} />
         <Collection shapes={level.expectedCollection} />
       </div>
       <input type='text' className="Level__InputForm" value={userInput} onChange={e => setUserInput(e.target.value)} />
-      <p>You got an error : {compileError}</p>
+      <p>{compileError}</p>
       <Collection shapes={queryShapes} />
     </div>
   );
