@@ -5,42 +5,26 @@ import square from '../../Images/Square.svg';
 import triangle from '../../Images/Triangle.svg';
 
 
-function Shape({ shape }) {
-  // const [image, setImage] = useState([]);
-
-  // useEffect(() => {
-  // if (shape.shape === 'Circle') {
-  //   setImage(circle);
-  // }
-  // if (shape.shape === 'Square') {
-  //   setImage(square);
-  // }
-  // if (shape.shape === 'Triangle') {
-  //   setImage(triangle);
-
-  // setImage('<img className={"Level__Shape--" + shape.color} src={image} alt=\'A circle\' />');
-  // }
-  // }, []);
+function Shape({ shape, shaded }) {
 
   const chooseImage = () => {
     if (shape.shape === 'Circle') {
-      return <img className={"Level__Shape--" + shape.color} src={circle} alt='A circle' />;
+      return circle;
     }
     if (shape.shape === 'Square') {
-      return <img className={"Level__Shape--" + shape.color} src={square} alt='A circle' />;
+      return square;
     }
     if (shape.shape === 'Triangle') {
-      return <img className={"Level__Shape--" + shape.color} src={triangle} alt='A circle' />;
+      return triangle;
     }
-    return <img className={"Level__Shape" + shape.color} src='' alt={shape.shape} />;
+    return '';
 
   };
 
   return (
     <>
-      {chooseImage()}
+      <img className={ `Level__Shape--${shape.color}${shaded}` } src={ chooseImage(shape) } alt='A circle' />
     </>
-    // <img className={"Level__Shape--" + shape.color} src={() => chooseImage(shape)} alt='A circle' />
   );
 }
 export default Shape;

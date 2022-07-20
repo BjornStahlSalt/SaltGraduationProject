@@ -14,26 +14,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    // const requestOptions = {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     listOfShapes: levels[0].startCollection,
-    //     Query: 'test.OrderBy(s => s.PriorityValue);'
-    //   }),
-    // };
 
-    // fetch('https://localhost:7003/api/Inputs', requestOptions)
-    //   .then(response => response.json());
 
     setCurrentLevel(levels[0]);
     console.log(levels);
   }, [levels]);
 
   const handleTitleClick = (level) => {
-    //setCurrentLevel({title: level.title, id: level.id, description: level.description, linqMethod: level.linqMethod, startCollection: level.startCollection, expectedCollection: level.expectedCollection});
     setCurrentLevel(level);
   };
 
@@ -46,11 +33,11 @@ function App() {
         <div className='Nav__LevelList'>
           {
             levels.map((l) =>
-              <button className='Nav__LevelButton' type="submit" key={l.id} onClick={() => handleTitleClick(l)}>{l.title}</button>)
+              <button className='Nav__LevelButton' type="submit" key={ l.id } onClick={ () => handleTitleClick(l) }>{ l.title }</button>)
           }
         </div>
       </nav>
-      <Level level={currentLevel} />
+      <Level level={ currentLevel } />
     </div>
   );
 }

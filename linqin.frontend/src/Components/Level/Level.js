@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
-import ExpectedCollection from '../Collection/ExpectedCollection.js';
 import './Level.css';
 
 
@@ -48,15 +47,15 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      <h3 className='Level__Title'>{level.title}</h3>
+      <h3 className='Level__Title'>{ level.title }</h3>
       <p>Prompt</p>
       <div>
-        <Collection shapes={level.startCollection} />
-        <ExpectedCollection shapes={level.expectedCollection} />
+        <Collection shapes={ level.startCollection } shaded='' />
+        <Collection shapes={ level.expectedCollection } shaded=' shaded' />
       </div>
-      <input type='text' className="Level__InputForm" value={userInput} onChange={e => setUserInput(e.target.value)} />
-      <p>{compileError}</p>
-      <Collection shapes={queryShapes} />
+      <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => setUserInput(e.target.value) } />
+      <p>{ compileError }</p>
+      <Collection shapes={ queryShapes } shaded='' />
     </div>
   );
 }
