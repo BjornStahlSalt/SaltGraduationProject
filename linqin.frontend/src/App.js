@@ -13,11 +13,7 @@ function App() {
       },
       body: JSON.stringify({
 
-        listOfShapes: [
-          { Shape: 'Circle', Color: 'Red', PriorityValue: 2 },
-          { Shape: 'Triangle', Color: 'Green', PriorityValue: 3 },
-          { Shape: 'Square', Color: 'Blue', PriorityValue: 1 }
-        ],
+        listOfShapes: levels.startCollection,
         Query: 'test.OrderBy(s => s.PriorityValue);'
       }),
     };
@@ -31,9 +27,26 @@ function App() {
   useEffect(() => {
     console.log(levels);
   }, [levels]);
+
+
   return (
     <div className="App">
-      {/* <Collection shapes={ levels[0].StartCollection } /> */ }
+      <header></header>
+      <div>
+        <h2>Levels</h2>
+        <div>
+          {levels.map((l) => <h3 key={l.id}>{l.title}</h3>)}
+        </div>
+      </div>
+
+      <div>
+        <h3>Title</h3>
+        <p>Prompt</p>
+        <div>
+          <Collection shapes={levels[0].startCollection} />
+          <Collection shapes={levels[0].expectedCollection} />
+        </div>
+      </div>
     </div>
   );
 }
