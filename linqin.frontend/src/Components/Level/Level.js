@@ -5,6 +5,9 @@ import Collection from '../Collection/Collection.js';
 function Level({ level }) {
   const [userInput, setUserInput] = useState("");
   const [compileError, setCompileError] = useState("");
+  const [queryShapes, setQueryShapes] = useState("");
+
+
 
   useEffect(() => {
     if (level == null)
@@ -23,7 +26,16 @@ function Level({ level }) {
 
     fetch('https://localhost:7003/api/Inputs', requestOptions)
       .then(response => response.json())
-      .catch(error => setCompileError(error.message));
+      .then(response => {if(response.errorMessage === '')
+      {
+        setQueryShapes(response.listOfShapes)
+      }
+      else
+      {
+        setCompileError(response.errorMessage)
+      }
+    })
+      .catch(error => console.log(error));
   }, [userInput, level]);
 
 

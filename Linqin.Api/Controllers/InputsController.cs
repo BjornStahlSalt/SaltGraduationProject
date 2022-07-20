@@ -20,15 +20,15 @@ public class InputsController : ControllerBase
     {
         try
         {
-            return Ok(await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query));
+            return Ok(new ResponsePost(){listOfShapes = await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query)});
         }
         catch (FiddleClientError ex)
         {
-            return BadRequest(ex.Message);
+            return Ok(new ResponsePost(){ErrorMessage=ex.Message});
         }
         catch (Exception ex)
         {
-            return BadRequest(ex.Message);
+             return Ok(new ResponsePost(){ErrorMessage=ex.Message});
         }
         catch
         {
