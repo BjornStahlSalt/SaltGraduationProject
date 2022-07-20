@@ -4,7 +4,12 @@ import Collection from '../Collection/Collection.js';
 
 function Level({ level }) {
   const [userInput, setUserInput] = useState("");
+  const [compileError, setCompileError] = useState("");
+
   useEffect(() => {
+    if (level == null)
+      return;
+
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -17,8 +22,9 @@ function Level({ level }) {
     };
 
     fetch('https://localhost:7003/api/Inputs', requestOptions)
-      .then(response => response.json());
-  }, [userInput]);
+      .then(response => response.json())
+      .catch(error => setCompileError(error.message));
+  }, [userInput, level]);
 
 
   if (level == null) {
@@ -30,10 +36,11 @@ function Level({ level }) {
       <h3>Title</h3>
       <p>Prompt</p>
       <div>
-        <Collection shapes={ level.startCollection } />
-        <Collection shapes={ level.expectedCollection } />
+        <Collection shapes={level.startCollection} />
+        <Collection shapes={level.expectedCollection} />
       </div>
-      <input type='text' value={ userInput } onChange={ e => setUserInput(e.target.value) } />
+      <input type='text' value={userInput} onChange={e => setUserInput(e.target.value)} />
+      <p>You got an error : {compileError}</p>
     </div>
   );
 }
