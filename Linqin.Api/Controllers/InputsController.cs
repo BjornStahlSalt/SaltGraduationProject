@@ -16,19 +16,19 @@ public class InputsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<List<ShapeModel>>> ExecuteLinqQuery(RequestPost linqQuery)
+    public async Task<ActionResult<ResponsePost>> ExecuteLinqQuery(RequestPost linqQuery)
     {
         try
         {
-            return Ok(new ResponsePost(){listOfShapes = await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query)});
+            return Ok(new ResponsePost() { listOfShapes = await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query) });
         }
         catch (FiddleClientError ex)
         {
-            return Ok(new ResponsePost(){ErrorMessage=ex.Message});
+            return Ok(new ResponsePost() { ErrorMessage = ex.Message });
         }
         catch (Exception ex)
         {
-             return Ok(new ResponsePost(){ErrorMessage=ex.Message});
+            return Ok(new ResponsePost() { ErrorMessage = ex.Message });
         }
         catch
         {

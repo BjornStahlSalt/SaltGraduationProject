@@ -3,9 +3,9 @@ import Collection from '../Collection/Collection.js';
 
 
 function Level({ level }) {
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState("test.OrderBy(s=>s.PriorityValue);");
   const [compileError, setCompileError] = useState("");
-  const [queryShapes, setQueryShapes] = useState("");
+  const [queryShapes, setQueryShapes] = useState([]);
 
 
 
@@ -26,15 +26,16 @@ function Level({ level }) {
 
     fetch('https://localhost:7003/api/Inputs', requestOptions)
       .then(response => response.json())
-      .then(response => {if(response.errorMessage === '')
-      {
-        setQueryShapes(response.listOfShapes)
-      }
-      else
-      {
-        setCompileError(response.errorMessage)
-      }
-    })
+      .then(response => {
+        if (response.errorMessage === null) {
+          setQueryShapes(response.listOfShapes);
+          setCompileError('');
+        }
+        else {
+          setQueryShapes([]);
+          setCompileError(response.errorMessage);
+        }
+      })
       .catch(error => console.log(error));
   }, [userInput, level]);
 
@@ -48,11 +49,12 @@ function Level({ level }) {
       <h3>Title</h3>
       <p>Prompt</p>
       <div>
-        <Collection shapes={level.startCollection} />
-        <Collection shapes={level.expectedCollection} />
+        <Collection shapes={ level.startCollection } />
+        <Collection shapes={ level.expectedCollection } />
       </div>
-      <input type='text' value={userInput} onChange={e => setUserInput(e.target.value)} />
-      <p>You got an error : {compileError}</p>
+      <input type='text' value={ userInput } onChange={ e => setUserInput(e.target.value) } />
+      <p>You got an error : { compileError }</p>
+      <Collection shapes={ queryShapes } />
     </div>
   );
 }
