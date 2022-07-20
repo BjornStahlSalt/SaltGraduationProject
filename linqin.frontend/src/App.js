@@ -40,18 +40,18 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className='Page'>
       <header></header>
-      <div>
-        <h2>Levels</h2>
-        <div>
+      <nav className='Nav'>
+        <h2 className='Nav__Title'>Levels</h2>
+        <div className='Nav__LevelList'>
           {
             levels.map((l) =>
-              <button type="submit" key={ l.id } onClick={ () => handleTitleClick(l) }>{ l.title }</button>)
+              <button className='Nav__LevelButton' type="submit" key={l.id} onClick={() => handleTitleClick(l)}>{l.title}</button>)
           }
         </div>
-      </div>
-      <Level level={ currentLevel } />
+      </nav>
+      <Level level={currentLevel} />
     </div>
   );
 }

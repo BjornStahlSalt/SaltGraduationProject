@@ -45,16 +45,16 @@ function Level({ level }) {
   }
 
   return (
-    <div>
+    <div className='Level'>
       <h3>Title</h3>
       <p>Prompt</p>
       <div>
-        <Collection shapes={ level.startCollection } />
-        <Collection shapes={ level.expectedCollection } />
+        <Collection shapes={level.startCollection} />
+        <Collection shapes={level.expectedCollection} />
       </div>
-      <input type='text' value={ userInput } onChange={ e => setUserInput(e.target.value) } />
-      <p>You got an error : { compileError }</p>
-      <Collection shapes={ queryShapes } />
+      <input type='text' value={userInput} onChange={e => setUserInput(e.target.value)} />
+      <p>You got an error : {compileError}</p>
+      <Collection shapes={queryShapes} />
     </div>
   );
 }
