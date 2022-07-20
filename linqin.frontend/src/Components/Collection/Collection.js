@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Collection.css';
 import circle from '../../Images/Circle.svg';
 import square from '../../Images/Square.svg';
@@ -6,6 +6,10 @@ import triangle from '../../Images/Triangle.svg';
 
 
 function Collection({ shapes }) {
+  const [image, setImage] = useState(null);
+  useEffect(() => {
+    if (shapes)
+  );
   return (
     <div>
       <div className="Level__Collection">{ shapes.map((s, i) =>
