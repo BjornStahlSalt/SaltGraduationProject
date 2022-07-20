@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+
 * {
+
   box-sizing: border-box;
   text-align: center;
+  font-family: 'Mali', cursive;
 }
 
 .Page {
@@ -8,9 +12,26 @@
   flex-direction: row;
 }
 
-.Nav__LevelList {
-  max-width: 25vw;
-  display: flex;
-  flex-direction: column;
+.Nav {
+  border-right: solid 1px gray;
+
 }
 
+.Nav__LevelList {
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.Nav__LevelButton:hover {
+  font-size: larger;
+}
+
+.Nav__LevelButton {
+  border-style: none;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  font-size: large;
+}

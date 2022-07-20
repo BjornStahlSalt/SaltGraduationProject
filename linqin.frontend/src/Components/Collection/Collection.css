@@ -1,5 +1,10 @@
-.Level__Collection{
+.Level__Collection {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+
+}
+
+.Level__Shape {
+  margin: 5px;
 }
