@@ -4,7 +4,7 @@ import React from 'react';
 function Collection({ shapes }) {
 
   return (
-    <div>{shapes[0].Color} </div>
+    <div>{shapes.map((s, i) => <p key={i}>{s.priorityValue}</p>)} </div>
   );
 }
 export default Collection;

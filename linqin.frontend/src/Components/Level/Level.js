@@ -3,16 +3,17 @@ import Collection from '../Collection/Collection.js';
 
 
 function Level({ level }) {
-  if (level === null) {
-    return <div></div>;
+  if (level == null) {
+    return (<div></div>);
   }
+
   return (
     <div>
       <h3>Title</h3>
       <p>Prompt</p>
       <div>
-        <Collection shapes={ level.startCollection } />
-        <Collection shapes={ level.expectedCollection } />
+        <Collection shapes={level.startCollection} />
+        <Collection shapes={level.expectedCollection} />
       </div>
     </div>
   );
