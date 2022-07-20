@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
+import './Level.css';
 
 
 function Level({ level }) {
@@ -52,7 +53,7 @@ function Level({ level }) {
         <Collection shapes={level.startCollection} />
         <Collection shapes={level.expectedCollection} />
       </div>
-      <input type='text' value={userInput} onChange={e => setUserInput(e.target.value)} />
+      <input type='text' className="Level__InputForm" value={userInput} onChange={e => setUserInput(e.target.value)} />
       <p>You got an error : {compileError}</p>
       <Collection shapes={queryShapes} />
     </div>
