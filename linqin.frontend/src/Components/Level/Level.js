@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
+import ExpectedCollection from '../Collection/ExpectedCollection.js';
 import './Level.css';
 
 
@@ -51,7 +52,7 @@ function Level({ level }) {
       <p>Prompt</p>
       <div>
         <Collection shapes={level.startCollection} />
-        <Collection shapes={level.expectedCollection} />
+        <ExpectedCollection shapes={level.expectedCollection} />
       </div>
       <input type='text' className="Level__InputForm" value={userInput} onChange={e => setUserInput(e.target.value)} />
       <p>{compileError}</p>

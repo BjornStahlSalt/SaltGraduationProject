@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Collection from './Components/Collection/Collection.js';
 import Level from './Components/Level/Level.js';
 
 function App() {
