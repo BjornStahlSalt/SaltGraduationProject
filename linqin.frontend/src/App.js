@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Collection from './Components/Collection/Collection.js';
+import Level from './Components/Level/Level.js';
 
 function App() {
 
@@ -39,11 +40,10 @@ function App() {
       <div>
         <h2>Levels</h2>
         <div>
-          {levels.map((l) => <h3 key={l.id}>{l.title}</h3>)}
+          { levels.map((l) => <h3 key={ l.id }>{ l.title }</h3>) }
         </div>
       </div>
-
-
+      <Level level={ currentLevel } />
     </div>
   );
 }
