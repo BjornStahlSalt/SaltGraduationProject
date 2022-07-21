@@ -5,14 +5,53 @@
   /* padding: auto; */
   width: 75vw;
   min-height: 100vh;
+  background: #BBD2C5;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #536976, #BBD2C5);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #536976, #BBD2C5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .Level__Title {
   font-size: 50px;
   margin: 0.2em 0;
+  margin-top: 50px;
 }
 
 .Level__InputForm {
   width: 60%;
   padding: 0.7em;
+  flex-basis: 90%;
+  border: none;
+  text-align: left;
+  padding-left: 0;
+}
+
+.Level__InputForm:focus {
+  outline: none;
+}
+
+.Level__Button--Submit {
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.preInput {
+  background-color: white;
+  border: none;
+  margin-left: 0px;
+  flex-basis: 10%;
+  text-align: right;
+}
+
+.Level__InputBit {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  background-color: white;
+
 }

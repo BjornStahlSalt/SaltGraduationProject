@@ -4,7 +4,7 @@ import './Level.css';
 
 
 function Level({ level }) {
-  const [userInput, setUserInput] = useState("shapes.OrderBy(s=>s.PriorityValue);");
+  const [userInput, setUserInput] = useState("shape.");
   const [compileError, setCompileError] = useState("");
   const [queryShapes, setQueryShapes] = useState([]);
 
@@ -34,7 +34,7 @@ function Level({ level }) {
         }
         else {
           setQueryShapes([]);
-          setCompileError('You got an error : ' + response.errorMessage);
+          setCompileError(response.errorMessage);
         }
       })
       .catch(error => console.log(error));
@@ -48,7 +48,7 @@ function Level({ level }) {
     else {
       setCompileError('Wrong Answer!');
     }
-  }
+  };
 
 
   if (level == null) {
@@ -57,17 +57,20 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      <h3 className='Level__Title'>{level.title}</h3>
-      <p>Prompt</p>
+      <h3 className='Level__Title'>{ level.title }</h3>
+      <p>{ level.description }</p>
       <div>
-        <Collection shapes={level.startCollection} shaded='' />
+        <Collection shapes={ level.startCollection } shaded='' />
       </div>
-      <input type='text' className="Level__InputForm" value={userInput} onChange={e => setUserInput(e.target.value)} />
-      <button type='submit' onClick={submitAnswer} >Check Answer</button>
-      <p>{compileError}</p>
-      <Collection shapes={level.expectedCollection} shaded='shaded' />
-      <Collection shapes={queryShapes} shaded='' />
+      <div className='Level__InputBit'>
+        <p className="preInput">shapes.</p>
+        <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => setUserInput(e.target.value) } />
+      </div>
+      <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button>
+      <p>{ compileError }</p>
+      <Collection shapes={ level.expectedCollection } shaded='shaded' />
+      <Collection shapes={ queryShapes } shaded='' />
     </div>
   );
 }
-export default Level;
+export default Level;;
