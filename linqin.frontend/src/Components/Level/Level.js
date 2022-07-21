@@ -51,10 +51,10 @@ function Level({ level }) {
       <p>Prompt</p>
       <div>
         <Collection shapes={ level.startCollection } shaded='' />
-        <Collection shapes={ level.expectedCollection } shaded=' shaded' />
       </div>
       <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => setUserInput(e.target.value) } />
       <p>{ compileError }</p>
+      <Collection shapes={ level.expectedCollection } shaded='shaded' />
       <Collection shapes={ queryShapes } shaded='' />
     </div>
   );

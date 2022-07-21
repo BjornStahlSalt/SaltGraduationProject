@@ -23,7 +23,7 @@ function Shape({ shape, shaded }) {
 
   return (
     <>
-      <img className={ `Level__Shape--${shape.color}${shaded}` } src={ chooseImage(shape) } alt='A circle' />
+      <img className={ `Level__Shape--${shape.color} ${shaded}` } src={ chooseImage(shape) } alt='A circle' />
     </>
   );
 }
