@@ -7,9 +7,9 @@ function Collection({ shapes, shaded }) {
 
   return (
     <div>
-      <div className={ `Level__Collection${shaded}` }>{ shapes.map((s, i) =>
-        <Shape shape={ s } shaded={ shaded } />
-      ) }
+      <div className={`Level__Collection${shaded}`}>{shapes.map((s, i) =>
+        <Shape shape={s} shaded={shaded} />
+      )}
       </div>
     </div>
   );
