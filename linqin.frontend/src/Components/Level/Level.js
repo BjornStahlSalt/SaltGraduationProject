@@ -76,12 +76,10 @@ function Level({ level }) {
       <div>
         <Collection shapes={level.startCollection} shaded='' />
       </div>
-      <div className='Level__InputBit'>
-        <p className="preInput">shapes.</p>
-        <form onSubmit={e => handleSubmit(e)}>
+        <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
+          <p className="preInput">shapes.</p>
           <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
         </form>
-      </div>
       <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
       <p>{compileError}</p>
       <Collection shapes={level.expectedCollection} shaded='shaded' />
