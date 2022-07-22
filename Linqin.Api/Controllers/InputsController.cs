@@ -1,7 +1,6 @@
-using CodeRunner;
-using Fiddle.Exceptions;
 using Linqin.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using LinqCompiler;
 
 namespace Linqin.Api.Controllers;
 
@@ -9,31 +8,22 @@ namespace Linqin.Api.Controllers;
 [Route("api/[controller]")]
 public class InputsController : ControllerBase
 {
-    private readonly CodeRunnerService _codeRunnerService;
-    public InputsController(CodeRunnerService codeRunnerService)
-    {
-        _codeRunnerService = codeRunnerService;
-    }
 
-    [HttpPost]
-    public async Task<ActionResult<ResponsePost>> ExecuteLinqQuery(RequestPost linqQuery)
+  [HttpPost]
+  public async Task<ActionResult<ResponsePost>> ExecuteLinqQuery(RequestPost linqQuery)
+  {
+    try
     {
-        try
-        {
-            return Ok(new ResponsePost() { listOfShapes = await _codeRunnerService.RunLinqQueryOnList(linqQuery.listOfShapes, linqQuery.Query) });
-        }
-        catch (FiddleClientError ex)
-        {
-            return Ok(new ResponsePost() { ErrorMessage = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            return Ok(new ResponsePost() { ErrorMessage = ex.Message });
-        }
-        catch
-        {
-            return BadRequest();
-        }
+      return Ok(Compiler.ExecuteString(linqQuery.Query, linqQuery.listOfShapes));
     }
+    catch (Exception ex)
+    {
+      return Ok(new ResponsePost() { ErrorMessage = ex.Message });
+    }
+    catch
+    {
+      return BadRequest();
+    }
+  }
 
 }

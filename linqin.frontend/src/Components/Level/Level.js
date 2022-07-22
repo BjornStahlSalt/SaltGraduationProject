@@ -59,6 +59,7 @@ function Level({ level }) {
     <div className='Level'>
       <h3 className='Level__Title'>{ level.title }</h3>
       <p className='Level__Description'>{ level.description }</p>
+      <p>{ level.description }</p>
       <div>
         <Collection shapes={ level.startCollection } shaded='' />
       </div>

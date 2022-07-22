@@ -3,6 +3,9 @@ import './Shape.css';
 import circle from '../../Images/Circle.svg';
 import square from '../../Images/Square.svg';
 import triangle from '../../Images/Triangle.svg';
+import circleLarge from '../../Images/Circle_Large.svg';
+import squareLarge from '../../Images/Square_Large.svg';
+import triangleLarge from '../../Images/Triangle_Large.svg';
 
 
 function Shape({ shape, shaded }) {
@@ -23,7 +26,7 @@ function Shape({ shape, shaded }) {
 
   return (
     <>
-      <img className={ `Level__Shape--${shape.color}${shaded}` } src={ chooseImage(shape) } alt='A circle' />
+      <img className={`Level__Shape--${shape.color} ${shaded}`} src={chooseImage(shape)} alt='A circle' />
     </>
   );
 }
