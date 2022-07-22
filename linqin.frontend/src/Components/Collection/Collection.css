@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-left: 20vw;
+  margin-left: 25vw;
   margin-bottom: 1.5rem;
 }
 
@@ -19,15 +19,15 @@ img {
 }
 
 .Level__Shape--Green {
-  filter: invert(50%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(60%) contrast(119%);
+  filter: invert(72%) sepia(100%) saturate(3000%) hue-rotate(70deg) brightness(70%) contrast(100%);
 }
 
 .Level__Shape--Blue {
-  filter: invert(9%) sepia(80%) saturate(7450%) hue-rotate(246deg) brightness(60%) contrast(142%);
+  filter: invert(40%) sepia(80%) saturate(7450%) hue-rotate(250deg) brightness(70%) contrast(142%);
 }
 
 .Level__Shape--Red {
-  filter: invert(11%) sepia(85%) saturate(7069%) hue-rotate(3deg) brightness(60%) contrast(113%);
+  filter: invert(40%) sepia(85%) saturate(7069%) hue-rotate(-40deg) brightness(70%) contrast(113%);
 }
 
 .shaded {
@@ -43,6 +43,6 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: left;
-  margin-left: 20vw;
+  margin-left: 25vw;
   margin-bottom: -100%;
 }
