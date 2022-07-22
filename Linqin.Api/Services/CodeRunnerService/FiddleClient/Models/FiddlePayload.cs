@@ -23,10 +23,10 @@ public class FiddlePayload
   public string CodeBlock { get; set; }
   public string OriginalCodeBlock { get; set; } = "";
   public string Language { get; set; } = "CSharp";
-  public string Compiler { get; set; } = "Net45";
+  public int Compiler { get; set; } = 3;
   public string ProjectType { get; set; } = "Console";
   public string OriginalFiddleId { get; set; } = "CsCons";
-  public string NuGetPackageVersionIds { get; set; } = "89119";
+  public string NuGetPackageVersionIds { get; set; } = "101955";
   public string OriginalNuGetPackageVersionIds { get; set; } = "";
   public string TimeOffset { get; set; } = "2";
   public List<object> ConsoleInputLines { get; set; } = new List<object>();

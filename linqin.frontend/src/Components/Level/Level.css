@@ -1,18 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@500&display=swap');
+
 .Level {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding: auto; */
-  width: 75vw;
+  width: 100%;
   min-height: 100vh;
 }
 
 .Level__Title {
-  font-size: 50px;
-  margin: 0.2em 0;
+  font-size: 70px;
+  margin: 0;
+  margin-top: 7rem;
+  font-family: 'Spectral SC', serif;
+}
+
+.Level__Description {
+  margin-top: 0;
+  margin-bottom: 5rem;
+  font-size: 22px;
 }
 
 .Level__InputForm {
-  width: 60%;
+  width: 40vw;
   padding: 0.7em;
+  flex-basis: 90%;
+  text-align: left;
+  padding-left: 0;
+}
+
+.Level__InputForm:focus {
+  outline: none;
+}
+
+.Level__Button--Submit {
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.preInput {
+  background-color: white;
+  border: none;
+  margin-left: 0px;
+  flex-basis: 10%;
+  text-align: right;
+}
+
+.Level__InputBit {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  background-color: white;
+
 }

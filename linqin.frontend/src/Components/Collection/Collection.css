@@ -1,28 +1,48 @@
 .Level__Collection {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 20vw;
+  margin-bottom: 1.5rem;
+}
 
+.Level__CollectionContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 img {
   margin: 5px;
-  width: 7%;
+  aspect-ratio: 1/1;
+  width: 12%;
 }
 
 .Level__Shape--Green {
-  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+  filter: invert(50%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(60%) contrast(119%);
 }
 
 .Level__Shape--Blue {
-  filter: invert(9%) sepia(80%) saturate(7450%) hue-rotate(246deg) brightness(102%) contrast(142%);
+  filter: invert(9%) sepia(80%) saturate(7450%) hue-rotate(246deg) brightness(60%) contrast(142%);
 }
 
 .Level__Shape--Red {
-  filter: invert(11%) sepia(85%) saturate(7069%) hue-rotate(3deg) brightness(106%) contrast(113%);
+  filter: invert(11%) sepia(85%) saturate(7069%) hue-rotate(3deg) brightness(60%) contrast(113%);
 }
 
 .shaded {
   opacity: 0.3;
-  width: 9%;
+  /* width: 8%; */
+  /* margin-bottom: -4vw;*/
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  /* position: relative;
+  transform: translateX(-20%); */
+}
+
+.Level__Collectionshaded {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-left: 20vw;
+  margin-bottom: -100%;
 }

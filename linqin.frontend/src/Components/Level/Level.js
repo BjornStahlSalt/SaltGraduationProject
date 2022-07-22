@@ -4,13 +4,13 @@ import './Level.css';
 
 
 function Level({ level }) {
-  const [userInput, setUserInput] = useState("test.OrderBy(s=>s.PriorityValue);");
+  const [userInput, setUserInput] = useState("");
   const [compileError, setCompileError] = useState("");
   const [queryShapes, setQueryShapes] = useState([]);
 
 
 
-  useEffect(() => {
+  const submitAnswer = () => {
     if (level == null)
       return;
 
@@ -30,15 +30,25 @@ function Level({ level }) {
       .then(response => {
         if (response.errorMessage === null) {
           setQueryShapes(response.listOfShapes);
-          setCompileError('Awsome!');
+          checkAnswer(level.expectedCollection, response.listOfShapes);
         }
         else {
           setQueryShapes([]);
-          setCompileError('You got an error : ' + response.errorMessage);
+          setCompileError(response.errorMessage);
         }
       })
       .catch(error => console.log(error));
-  }, [userInput, level]);
+  };
+
+  const checkAnswer = (expected, result) => {
+    const expectedList = expected.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
+    if (JSON.stringify(expectedList) === JSON.stringify(result)) {
+      setCompileError('Correct!!');
+    }
+    else {
+      setCompileError('Wrong Answer!');
+    }
+  };
 
 
   if (level == null) {
@@ -48,15 +58,19 @@ function Level({ level }) {
   return (
     <div className='Level'>
       <h3 className='Level__Title'>{ level.title }</h3>
-      <p>Prompt</p>
+      <p className='Level__Description'>{ level.description }</p>
       <div>
         <Collection shapes={ level.startCollection } shaded='' />
-        <Collection shapes={ level.expectedCollection } shaded=' shaded' />
       </div>
-      <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => setUserInput(e.target.value) } />
+      <div className='Level__InputBit'>
+        <p className="preInput">shapes.</p>
+        <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => setUserInput(e.target.value) } />
+      </div>
+      <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button>
       <p>{ compileError }</p>
+      <Collection shapes={ level.expectedCollection } shaded='shaded' />
       <Collection shapes={ queryShapes } shaded='' />
     </div>
   );
 }
-export default Level;
+export default Level;;

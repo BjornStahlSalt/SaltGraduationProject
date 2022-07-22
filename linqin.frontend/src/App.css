@@ -1,28 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gudea&display=swap');
 
 * {
-
   box-sizing: border-box;
   text-align: center;
-  font-family: 'Mali', cursive;
+  font-family: 'Gudea', sans-serif;
 }
 
 .Page {
   display: flex;
-  flex-direction: row;
+  flex-direction:row;
+  width: 100vw;
+  background-image: url('https://cutewallpaper.org/21/background-white-abstract/Light-Background-White-Abstract-Wallpaper-28544-Baltana.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter:  brightness(110%);
+
+}
+
+.Page__Content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  /* background: linear-gradient(to bottom, #eef2f3, #8e9eab);  */
+}
+.Nav__Links{
+  display: flex;
+  justify-content: start;
+  border-bottom: solid rgba(0, 0, 0, 0.2) ;
+}
+.Nav__Img{
+  width: 2.5rem;
+  height:auto;
+  margin: 5px 5px;
 }
 
 .Nav {
-  border-right: solid 1px gray;
-
+  display:flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 20%;
+  box-shadow: 0 0 10px #2e2e2e;
 }
 
 .Nav__LevelList {
-  width: 25vw;
   display: flex;
   flex-direction: column;
+}
 
-
+.Nav__Title{
+  color: black;
 }
 
 .Nav__LevelButton:hover {
@@ -31,8 +58,9 @@
 
 .Nav__LevelButton {
   border-style: none;
-  background-color: rgba(255, 255, 255, 0);
   cursor: pointer;
   font-size: large;
   margin: 0.5em 0;
+  background-color: transparent;
+  color: black;
 }
