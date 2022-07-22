@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
 import './Level.css';
-
+import PropertyList from '../ProperyList/PropertyList.js'
 
 function Level({ level }) {
   const [userInput, setUserInput] = useState("");
@@ -71,15 +71,16 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
+      {/* <PropertyList shapes={level.startCollection} /> */}
       <h3 className='Level__Title'>{level.title}</h3>
       <p className='Level__Description'>{level.description}</p>
       <div>
         <Collection shapes={level.startCollection} shaded='' />
       </div>
-        <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
-          <p className="preInput">shapes.</p>
-          <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
-        </form>
+      <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
+        <p className="preInput">shapes.</p>
+        <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
+      </form>
       <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
       <p>{compileError}</p>
       <Collection shapes={level.expectedCollection} shaded='shaded' />
