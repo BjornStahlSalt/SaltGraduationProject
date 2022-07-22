@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lBLLRovg5jQRfrNF0aDtY1aD7GpF/CuCexQw4oTC4EfoaBQ28qfWrOVHR84KpoM2gzSgmV7agYfy1HCbdyjVeQ==",
+  "dgSpecHash": "lTKhgYBbWhH9vn0UgHk2MIsoUJdeR1qP1KqKdw8xdIjp40HZDfymLWsmaPe6IB97GkVX6su4Mq2XTySTsA+8wQ==",
   "success": true,
-  "projectFilePath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
+  "projectFilePath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
   "expectedPackageFiles": [
     "/Users/saltdev/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.codeanalysis.common/4.2.0/microsoft.codeanalysis.common.4.2.0.nupkg.sha512",
@@ -21,12 +21,5 @@
     "/Users/saltdev/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/obj/project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

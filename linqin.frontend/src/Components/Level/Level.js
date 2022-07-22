@@ -50,6 +50,17 @@ function Level({ level }) {
     }
   };
 
+  const updateInput = (e) => {
+    setUserInput(e.target.value)
+    setQueryShapes([]);
+  }
+
+  useEffect(() => {
+    setQueryShapes([]);
+    setUserInput('')
+
+  }, [level]);
+
 
   if (level == null) {
     return (<div></div>);
@@ -57,19 +68,19 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      <h3 className='Level__Title'>{ level.title }</h3>
-      <p className='Level__Description'>{ level.description }</p>
+      <h3 className='Level__Title'>{level.title}</h3>
+      <p className='Level__Description'>{level.description}</p>
       <div>
-        <Collection shapes={ level.startCollection } shaded='' />
+        <Collection shapes={level.startCollection} shaded='' />
       </div>
       <div className='Level__InputBit'>
         <p className="preInput">shapes.</p>
-        <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => setUserInput(e.target.value) } />
+        <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
       </div>
-      <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button>
-      <p>{ compileError }</p>
-      <Collection shapes={ level.expectedCollection } shaded='shaded' />
-      <Collection shapes={ queryShapes } shaded='' />
+      <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
+      <p>{compileError}</p>
+      <Collection shapes={level.expectedCollection} shaded='shaded' />
+      <Collection shapes={queryShapes} shaded='' />
     </div>
   );
 }
