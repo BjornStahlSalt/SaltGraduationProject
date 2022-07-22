@@ -27,7 +27,7 @@ namespace LinqCompiler
         "{" +
           "public static IEnumerable<ShapeModel> ExecuteQuery(IEnumerable<ShapeModel> shapes)" +
           "{" +
-          $"return shapes{linqQuery}" +
+          $"return shapes.{linqQuery}" +
           "}" +
 
         "}";
