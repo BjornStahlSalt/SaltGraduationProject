@@ -8,7 +8,10 @@ function Level({ level }) {
   const [compileError, setCompileError] = useState("");
   const [queryShapes, setQueryShapes] = useState([]);
 
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitAnswer();
+  };
 
   const submitAnswer = () => {
     if (level == null)
@@ -75,7 +78,9 @@ function Level({ level }) {
       </div>
       <div className='Level__InputBit'>
         <p className="preInput">shapes.</p>
-        <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
+        <form onSubmit={e => handleSubmit(e)}>
+          <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
+        </form>
       </div>
       <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
       <p>{compileError}</p>
