@@ -8,6 +8,7 @@ function Level({ level }) {
   const [userInput, setUserInput] = useState("");
   const [compileError, setCompileError] = useState("");
   const [queryResult, setQueryResult] = useState([]);
+  const [expectedResult, setExpectedResult] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -93,6 +94,26 @@ function Level({ level }) {
     setQueryResult([]);
     setUserInput('')
 
+    if (level) {
+      let temp = expectedResult;
+      if (Array.isArray(level) && level.expectedCollection) {
+        console.log('expected array');
+        temp = level.expectedCollection
+      }
+      else if (level.expectedInt) {
+        temp = level.expectedInt;
+      }
+      else if (level.expectedBool) {
+        temp = level.expectedBool;
+      }
+      else if (level.expectedObject) {
+        console.log('expected object');
+        temp = level.expectedObject;
+      }
+      setExpectedResult(temp);
+    }
+
+
   }, [level]);
 
 
@@ -114,7 +135,7 @@ function Level({ level }) {
       </form>
       <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
       <p>{compileError}</p>
-      <Result result={level.expectedCollection} shaded='shaded' />
+      <Result result={expectedResult} shaded='shaded' />
       <Result result={queryResult} shaded='' />
       {/* <Collection shapes={level.expectedCollection} shaded='shaded' />
       <Collection shapes={queryShapes} shaded='' /> */}
