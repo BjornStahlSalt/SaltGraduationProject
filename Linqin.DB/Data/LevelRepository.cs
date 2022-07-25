@@ -23,7 +23,6 @@ public class LevelRepository
 
     var serviceClient = new TableServiceClient(new Uri(storageUri), new TableSharedKeyCredential(accountName, storageAccountKey));
     serviceClient.CreateTableIfNotExists(_tableName);
-    // Console.WriteLine($"The created table's name is {table.Name}.");
   }
 
   public TableClient ConnectToTable()
@@ -40,10 +39,13 @@ public class LevelRepository
     var entity = new TableEntity(_partitionKey, rowKey) {
       { "Id", rowKey },
       { "Title", request.Title },
-      { "LinqMethod", request.LinqMethod },
+      { "Prompt", request.Prompt },
       { "Description", request.Description },
       { "StartCollection", JsonConvert.SerializeObject(request.StartCollection) },
-      { "ExpectedCollection", JsonConvert.SerializeObject(request.ExpectedCollection) }
+      { "ExpectedBool", JsonConvert.SerializeObject(request.ExpectedBool) },
+      { "ExpectedInt", JsonConvert.SerializeObject(request.ExpectedInt) },
+      { "ExpectedCollection", JsonConvert.SerializeObject(request.ExpectedCollection) },
+      { "ExpectedSingle", JsonConvert.SerializeObject(request.ExpectedSingle) }
       };
     _tableClient.AddEntity(entity);
     return rowKey;
@@ -61,10 +63,13 @@ public class LevelRepository
         {
           Id = level.Id,
           Title = level.Title,
+          Prompt = level.Prompt,
           Description = level.Description,
-          LinqMethod = level.LinqMethod,
-          StartCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.StartCollection),
-          ExpectedCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.ExpectedCollection)
+          StartCollection = JsonConvert.DeserializeObject<List<ShapeModel>>(level.StartCollection),
+          ExpectedBool = JsonConvert.DeserializeObject<bool?>(level.ExpectedBool),
+          ExpectedInt = JsonConvert.DeserializeObject<int?>(level.ExpectedInt),
+          ExpectedCollection = JsonConvert.DeserializeObject<List<ShapeModel>?>(level.ExpectedCollection),
+          ExpectedSingle = JsonConvert.DeserializeObject<ShapeModel?>(level.ExpectedSingle)
         }
       );
     }
@@ -84,10 +89,13 @@ public class LevelRepository
     {
       Id = level.Id,
       Title = level.Title,
+      Prompt = level.Prompt,
       Description = level.Description,
-      LinqMethod = level.LinqMethod,
-      StartCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.StartCollection),
-      ExpectedCollection = JsonConvert.DeserializeObject<List<GeometryShape>>(level.ExpectedCollection)
+      StartCollection = JsonConvert.DeserializeObject<List<ShapeModel>>(level.StartCollection),
+      ExpectedBool = JsonConvert.DeserializeObject<bool?>(level.ExpectedBool),
+      ExpectedInt = JsonConvert.DeserializeObject<int?>(level.ExpectedInt),
+      ExpectedCollection = JsonConvert.DeserializeObject<List<ShapeModel>?>(level.ExpectedCollection),
+      ExpectedSingle = JsonConvert.DeserializeObject<ShapeModel?>(level.ExpectedSingle)
     };
     // return new Level()
     // {
