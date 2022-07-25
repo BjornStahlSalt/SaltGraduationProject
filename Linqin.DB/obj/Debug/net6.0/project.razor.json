@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
+  "FilePath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "Linqin.Api",
+  "RootNamespace": "Linqin.DB",
   "Documents": [],
   "SerializationFormat": "0.2"
 }
