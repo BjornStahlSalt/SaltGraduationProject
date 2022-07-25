@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
+import SubmitButton from './SubmitButton';
+import ClipLoader from "react-spinners/ClipLoader";
 import './Level.css';
 
 
 function Level({ level }) {
   const [userInput, setUserInput] = useState("");
-  const [compileError, setCompileError] = useState("");
+  const [compileError, setCompileError] = useState(null);
   const [queryShapes, setQueryShapes] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,14 +33,18 @@ function Level({ level }) {
 
     fetch('https://localhost:7003/api/Inputs', requestOptions)
       .then(response => response.json())
+      .then(setLoading(true))
       .then(response => {
         if (response.errorMessage === null) {
           setQueryShapes(response.listOfShapes);
           checkAnswer(level.expectedCollection, response.listOfShapes);
+          setLoading(false);
         }
         else {
           setQueryShapes([]);
           setCompileError(response.errorMessage);
+          setLoading(false);
+
         }
       })
       .catch(error => console.log(error));
@@ -54,13 +61,13 @@ function Level({ level }) {
   };
 
   const updateInput = (e) => {
-    setUserInput(e.target.value)
+    setUserInput(e.target.value);
     setQueryShapes([]);
-  }
+  };
 
   useEffect(() => {
     setQueryShapes([]);
-    setUserInput('')
+    setUserInput('');
 
   }, [level]);
 
@@ -71,19 +78,20 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      <h3 className='Level__Title'>{level.title}</h3>
-      <p className='Level__Description'>{level.description}</p>
+      <h3 className='Level__Title'>{ level.title }</h3>
+      <p className='Level__Description'>{ level.description }</p>
       <div>
-        <Collection shapes={level.startCollection} shaded='' />
+        <Collection shapes={ level.startCollection } shaded='' />
       </div>
-        <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
-          <p className="preInput">shapes.</p>
-          <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
-        </form>
-      <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
-      <p>{compileError}</p>
-      <Collection shapes={level.expectedCollection} shaded='shaded' />
-      <Collection shapes={queryShapes} shaded='' />
+      <form className='Level__InputBit' onSubmit={ e => handleSubmit(e) }>
+        <p className="preInput">shapes.</p>
+        <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
+      </form>
+      {/* <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button> */ }
+      <p>{ loading ? <ClipLoader color={ '#36D7B7' } loading={ loading } size={ 30 } /> : compileError }</p>
+      <SubmitButton submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
+      <Collection shapes={ level.expectedCollection } shaded='shaded' />
+      <Collection shapes={ queryShapes } shaded='' />
     </div>
   );
 }
