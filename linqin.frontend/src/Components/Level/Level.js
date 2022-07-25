@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
+import SubmitButton from './SubmitButton';
 import './Level.css';
-import PropertyList from '../ProperyList/PropertyList.js'
+import PropertyList from '../ProperyList/PropertyList.js';
 import Result from '../Result/Result.js';
 
 function Level({ level }) {
@@ -9,6 +10,7 @@ function Level({ level }) {
   const [compileError, setCompileError] = useState("");
   const [queryResult, setQueryResult] = useState([]);
   const [expectedResult, setExpectedResult] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,14 +34,22 @@ function Level({ level }) {
 
     fetch('https://localhost:7003/api/Inputs', requestOptions)
       .then(response => response.json())
+      .then(setLoading(true))
       .then(response => {
         if (response.errorMessage === null) {
           console.log(response.listOfShapes);
           checkAnswer(level.expectedCollection, response.listOfShapes);
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
         }
         else {
           setQueryResult([]);
           setCompileError(response.errorMessage);
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+
         }
       })
       .catch(error => console.log(error));
@@ -86,19 +96,21 @@ function Level({ level }) {
   };
 
   const updateInput = (e) => {
-    setUserInput(e.target.value)
-    setQueryResult([]);
-  }
+    setUserInput(e.target.value);
+    setQueryShapes([]);
+    setCompileError('');
+  };
 
   useEffect(() => {
-    setQueryResult([]);
-    setUserInput('')
+    setQueryShapes([]);
+    setUserInput('');
+    setCompileError('');
 
     if (level) {
       let temp = expectedResult;
       if (Array.isArray(level) && level.expectedCollection) {
         console.log('expected array');
-        temp = level.expectedCollection
+        temp = level.expectedCollection;
       }
       else if (level.expectedInt) {
         temp = level.expectedInt;
@@ -123,22 +135,21 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      <PropertyList shapes={level.startCollection} />
-      <h3 className='Level__Title'>{level.title}</h3>
-      <p className='Level__Description'>{level.description}</p>
+      <PropertyList shapes={ level.startCollection } />
+      <h3 className='Level__Title'>{ level.title }</h3>
+      <p className='Level__Description'>{ level.description }</p>
       <div>
-        <Collection shapes={level.startCollection} shaded='' />
+        <Collection shapes={ level.startCollection } shaded='' />
       </div>
-      <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
+      <form className='Level__InputBit' onSubmit={ e => handleSubmit(e) }>
         <p className="preInput">shapes.</p>
-        <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
+        <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
       </form>
-      <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
-      <p>{compileError}</p>
-      <Result result={expectedResult} shaded='shaded' />
-      <Result result={queryResult} shaded='' />
-      {/* <Collection shapes={level.expectedCollection} shaded='shaded' />
-      <Collection shapes={queryShapes} shaded='' /> */}
+      <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button>
+      <p>{ compileError }</p>
+      <SubmitButton submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
+      <Result result={ expectedResult } shaded='shaded' />
+      <Result result={ queryResult } shaded='' />
     </div>
   );
 }
