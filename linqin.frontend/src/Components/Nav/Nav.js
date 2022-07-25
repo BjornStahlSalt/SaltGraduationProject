@@ -10,6 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Divider from '@mui/material/Divider';
 import HomeIcon from '@mui/icons-material/Home';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
+
 import './Nav.css';
 
 export default function Nav({ levels, handleTitleClick }) {
@@ -44,17 +45,18 @@ export default function Nav({ levels, handleTitleClick }) {
             </List>
         </Box>
     );
+
     return (
         <div>
             { ['left',].map((anchor) => (
                 <React.Fragment class='test' key={ anchor }>
-                    <Button startIcon={ <MenuIcon /> } onClick={ toggleDrawer(anchor, true) }></Button>
+                    <Button size='40px' startIcon={ <MenuIcon fontSize="large" /> } onClick={ toggleDrawer(anchor, true) }></Button>
                     <Drawer
                         anchor={ anchor }
                         open={ state[anchor] }
                         onClose={ toggleDrawer(anchor, false) }
                         PaperProps={ {
-                            sx: { width: "16%", bgcolor: 'rgba(0, 0, 0, 0.2)' },
+                            sx: { width: "16%", bgcolor: '#E4E4E4' },
                         } }
                     >
                         { list(anchor) }

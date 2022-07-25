@@ -3,10 +3,10 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import { green, red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 export default function TestButton({ submitAnswer, compileError, loading }) {
     const timer = React.useRef();
-
 
     const buttonSx = {
         ...(compileError == 'Correct!!' && {

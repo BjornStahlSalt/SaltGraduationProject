@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
 import SubmitButton from './SubmitButton';
-import ClipLoader from "react-spinners/ClipLoader";
 import './Level.css';
 
 
@@ -38,12 +37,16 @@ function Level({ level }) {
         if (response.errorMessage === null) {
           setQueryShapes(response.listOfShapes);
           checkAnswer(level.expectedCollection, response.listOfShapes);
-          setLoading(false);
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
         }
         else {
           setQueryShapes([]);
           setCompileError(response.errorMessage);
-          setLoading(false);
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
 
         }
       })
@@ -63,11 +66,13 @@ function Level({ level }) {
   const updateInput = (e) => {
     setUserInput(e.target.value);
     setQueryShapes([]);
+    setCompileError('');
   };
 
   useEffect(() => {
     setQueryShapes([]);
     setUserInput('');
+    setCompileError('');
 
   }, [level]);
 
@@ -87,8 +92,7 @@ function Level({ level }) {
         <p className="preInput">shapes.</p>
         <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
       </form>
-      {/* <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button> */ }
-      <p>{ loading ? <ClipLoader color={ '#36D7B7' } loading={ loading } size={ 30 } /> : compileError }</p>
+      <p>{ loading ? "" : compileError }</p>
       <SubmitButton submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
       <Collection shapes={ level.expectedCollection } shaded='shaded' />
       <Collection shapes={ queryShapes } shaded='' />
