@@ -8,8 +8,8 @@ function PropertyList({ shapes }) {
   useEffect(() => {
     // const distShapes = [... new Set(shapes)];
     // const test = shapes.map(s => s.color);
-    const unique = new Set();
-    shapes.forEach(s => unique.add(s));
+    const unique = [...new Map(shapes.map(obj => [JSON.stringify(obj), obj])).values()];
+    // shapes.forEach(s => unique.add(s));
 
     // const onlyUnique = (value, index, self) => {
     //   return self.indexOf(value) === index;
