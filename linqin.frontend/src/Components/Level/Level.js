@@ -32,7 +32,7 @@ function Level({ level }) {
       .then(response => response.json())
       .then(response => {
         if (response.errorMessage === null) {
-          setQueryShapes(response.listOfShapes);
+          console.log(response.listOfShapes);
           checkAnswer(level.expectedCollection, response.listOfShapes);
         }
         else {
@@ -44,13 +44,40 @@ function Level({ level }) {
   };
 
   const checkAnswer = (expected, result) => {
-    const expectedList = expected.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
-    if (JSON.stringify(expectedList) === JSON.stringify(result)) {
-      setCompileError('Correct!!');
+    if (Array.isArray(result)) {
+      console.log('We got an array');
+
+      const expectedList = expected.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
+      const resultList = result.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
+
+      if (JSON.stringify(expectedList) === JSON.stringify(resultList)) {
+        setCompileError('Correct!!');
+      }
+      else {
+        setCompileError('Wrong Answer!');
+      }
+      setQueryShapes(resultList);
+
+      return;
     }
-    else {
-      setCompileError('Wrong Answer!');
+
+    if (typeof result === 'number') {
+      console.log('We got a number');
+      return;
     }
+
+    if (typeof result === 'boolean') {
+      console.log('We got a bool');
+      return;
+    }
+
+    if (typeof result === 'object') {
+      console.log('We got an object');
+      return;
+    }
+
+
+    console.log('Could not read response');
   };
 
   const updateInput = (e) => {
@@ -71,7 +98,7 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      {/* <PropertyList shapes={level.startCollection} /> */}
+      <PropertyList shapes={level.startCollection} />
       <h3 className='Level__Title'>{level.title}</h3>
       <p className='Level__Description'>{level.description}</p>
       <div>

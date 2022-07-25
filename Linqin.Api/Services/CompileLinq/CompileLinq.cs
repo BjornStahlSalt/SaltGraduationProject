@@ -8,13 +8,17 @@ using Microsoft.CodeAnalysis.Emit;
 using Linqin.Api.Models;
 using Newtonsoft.Json;
 using System.Linq;
+using System;
+using System.Collections.Concurrent;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace LinqCompiler
 {
   public static class Compiler
   {
 
-    public static ResponsePost ExecuteString(string linqQuery, IEnumerable<ShapeModel> startCollection)
+    public static async Task<ResponsePost> ExecuteString(string linqQuery, IEnumerable<ShapeModel> startCollection)
     {
       string code = "using System;" +
         "using System.IO;" +
@@ -25,7 +29,7 @@ namespace LinqCompiler
 
         "public static class Helper" +
         "{" +
-          "public static IEnumerable<ShapeModel> ExecuteQuery(IEnumerable<ShapeModel> shapes)" +
+          "public static object? ExecuteQuery(IEnumerable<ShapeModel> shapes)" +
           "{" +
           $"return shapes.{linqQuery}" +
           "}" +
@@ -62,12 +66,16 @@ namespace LinqCompiler
           var assembly = Assembly.Load(dll.ToArray(), pdb.ToArray());
 
           var type = assembly.GetType("Script+Helper");
-          var method = type.GetMethod("ExecuteQuery");
-          var result = method.Invoke(null, new object[] { startCollection });
+          var method = type?.GetMethod("ExecuteQuery");
 
-          var str = result as IEnumerable<ShapeModel>;
+          var result = method?.Invoke(null, new object[] { startCollection });
 
-          return new ResponsePost() { ListOfShapes = str.ToList() };
+          // var str = result as IEnumerable<ShapeModel>;
+
+          // if (str == null)
+          //   throw new Exception("Unknown error at execution");
+
+          return new ResponsePost() { ListOfShapes = result };
         }
         else
         {
