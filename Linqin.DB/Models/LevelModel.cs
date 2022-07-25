@@ -12,6 +12,8 @@ public class Level : ITableEntity
   public ETag ETag { get; set; }
 
   public string Title { get; set; }
+
+  public string LevelDifficulty { get; set; }
   public string Prompt { get; set; }
   public string Description { get; set; }
   public string StartCollection { get; set; }

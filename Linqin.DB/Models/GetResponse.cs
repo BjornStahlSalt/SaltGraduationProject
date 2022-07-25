@@ -7,6 +7,7 @@ public class GetResponse
 {
     public string Id { get; set; }
     public string Title { get; set; }
+    public int LevelDifficulty { get; set; }
     public string Prompt { get; set; }
     public string Description { get; set; }
     public List<ShapeModel> StartCollection { get; set; }

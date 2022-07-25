@@ -6,6 +6,7 @@ namespace Linqin.DB.Models;
 public class PostRequest
 {
   public string Title { get; set; }
+  public int LevelDifficulty { get; set; }
   public string Prompt { get; set; }
   public string Description { get; set; }
   public List<ShapeModel> StartCollection { get; set; }

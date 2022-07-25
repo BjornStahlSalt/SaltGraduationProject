@@ -39,6 +39,7 @@ public class LevelRepository
     var entity = new TableEntity(_partitionKey, rowKey) {
       { "Id", rowKey },
       { "Title", request.Title },
+      { "LevelDifficulty", request.LevelDifficulty },
       { "Prompt", request.Prompt },
       { "Description", request.Description },
       { "StartCollection", JsonConvert.SerializeObject(request.StartCollection) },
@@ -63,6 +64,7 @@ public class LevelRepository
         {
           Id = level.Id,
           Title = level.Title,
+          LevelDifficulty = JsonConvert.DeserializeObject<int>(level.LevelDifficulty),
           Prompt = level.Prompt,
           Description = level.Description,
           StartCollection = JsonConvert.DeserializeObject<List<ShapeModel>>(level.StartCollection),
@@ -89,6 +91,7 @@ public class LevelRepository
     {
       Id = level.Id,
       Title = level.Title,
+      LevelDifficulty = JsonConvert.DeserializeObject<int>(level.LevelDifficulty),
       Prompt = level.Prompt,
       Description = level.Description,
       StartCollection = JsonConvert.DeserializeObject<List<ShapeModel>>(level.StartCollection),
