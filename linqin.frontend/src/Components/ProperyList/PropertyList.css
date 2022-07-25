@@ -1,0 +1,25 @@
+.Properties {
+  position: absolute;
+  top: 1%;
+  right: 0%;
+  /* width: 500px; */
+  width: fit-content;
+  height: 120px;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px #2e2e2e;
+
+  display: flex;
+  direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  justify-items: left;
+}
+
+.Properties__Shape {
+  width: 200px;
+}
+
+.Properties__Property {
+  margin: 0.1em;
+}

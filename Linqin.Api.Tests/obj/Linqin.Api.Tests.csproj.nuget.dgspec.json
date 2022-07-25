@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj": {}
+    "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj": {}
   },
   "projects": {
-    "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj": {
+    "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
+        "projectUniqueName": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
         "projectName": "Linqin.Api.Tests",
-        "projectPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
+        "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
         "packagesPath": "/Users/saltdev/.nuget/packages/",
-        "outputPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/obj/",
+        "outputPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/saltdev/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
-                "projectPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj"
+              "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
+                "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj"
               }
             }
           }
@@ -82,18 +82,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
+    "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
+        "projectUniqueName": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
         "projectName": "Linqin.Api",
-        "projectPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
+        "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
         "packagesPath": "/Users/saltdev/.nuget/packages/",
-        "outputPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/obj/",
+        "outputPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/saltdev/.nuget/NuGet/NuGet.Config"
@@ -151,7 +151,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }

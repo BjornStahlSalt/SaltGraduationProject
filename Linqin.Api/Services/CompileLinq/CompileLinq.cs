@@ -82,8 +82,8 @@ namespace LinqCompiler
           var issue = "";
           foreach (Diagnostic codeIssue in compilationResult.Diagnostics)
           {
-            // issue += $"ID: {codeIssue.Id}, Message: {codeIssue.GetMessage()},Location: {codeIssue.Location.GetLineSpan()},Severity: {codeIssue.Severity}";
-            issue += $"{codeIssue.GetMessage()}";
+            issue += $"ID: {codeIssue.Id}, Message: {codeIssue.GetMessage()},Location: {codeIssue.Location.GetLineSpan()},Severity: {codeIssue.Severity}";
+            // issue += $"{codeIssue.GetMessage()}";
           }
 
           return new ResponsePost()

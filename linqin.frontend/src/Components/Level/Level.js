@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
 import './Level.css';
 import PropertyList from '../ProperyList/PropertyList.js'
+import Result from '../Result/Result.js';
 
 function Level({ level }) {
   const [userInput, setUserInput] = useState("");
   const [compileError, setCompileError] = useState("");
-  const [queryShapes, setQueryShapes] = useState([]);
+  const [queryResult, setQueryResult] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ function Level({ level }) {
           checkAnswer(level.expectedCollection, response.listOfShapes);
         }
         else {
-          setQueryShapes([]);
+          setQueryResult([]);
           setCompileError(response.errorMessage);
         }
       })
@@ -56,23 +57,26 @@ function Level({ level }) {
       else {
         setCompileError('Wrong Answer!');
       }
-      setQueryShapes(resultList);
+      setQueryResult(resultList);
 
       return;
     }
 
     if (typeof result === 'number') {
       console.log('We got a number');
+      setQueryResult(result);
       return;
     }
 
     if (typeof result === 'boolean') {
       console.log('We got a bool');
+      setQueryResult(result);
       return;
     }
 
     if (typeof result === 'object') {
       console.log('We got an object');
+      setQueryResult(result);
       return;
     }
 
@@ -82,11 +86,11 @@ function Level({ level }) {
 
   const updateInput = (e) => {
     setUserInput(e.target.value)
-    setQueryShapes([]);
+    setQueryResult([]);
   }
 
   useEffect(() => {
-    setQueryShapes([]);
+    setQueryResult([]);
     setUserInput('')
 
   }, [level]);
@@ -110,8 +114,10 @@ function Level({ level }) {
       </form>
       <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
       <p>{compileError}</p>
-      <Collection shapes={level.expectedCollection} shaded='shaded' />
-      <Collection shapes={queryShapes} shaded='' />
+      <Result result={level.expectedCollection} shaded='shaded' />
+      <Result result={queryResult} shaded='' />
+      {/* <Collection shapes={level.expectedCollection} shaded='shaded' />
+      <Collection shapes={queryShapes} shaded='' /> */}
     </div>
   );
 }

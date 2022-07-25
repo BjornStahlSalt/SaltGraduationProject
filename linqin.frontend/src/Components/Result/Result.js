@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from 'react';
+import Collection from '../Collection/Collection.js';
 import Shape from '../Shape/Shape';
-import './result.css';
+import './Result.css';
 
 
-function Rsult({ result, shaded }) {
+function Result({ result, shaded }) {
   const [resultHtml, setResultHtml] = useState('');
   useEffect(() => {
 
     if (Array.isArray(result)) {
       setResultHtml(
-        [<Collection shapes={result} shaded='shaded' />,
-        <Collection shapes={queryShapes} shaded='' />]
+        <Collection shapes={result} shaded='shaded' />
       );
       return;
     }
 
     if (typeof result === 'number') {
-      setResultHtml(<p>{result}</p>);
+      setResultHtml(<p className='Result__Text'>{result}</p>);
       return;
     }
 
     if (typeof result === 'boolean') {
-      console.log('We got a bool');
+      setResultHtml(<p className='Result__Text'>{result.toString()}</p>);
       return;
     }
 
     if (typeof result === 'object') {
       console.log('We got an object');
+      setResultHtml(
+        <Shape shape={result} shaded={shaded} large='' />
+      );
       return;
     }
 
@@ -34,8 +37,8 @@ function Rsult({ result, shaded }) {
   }, [result]);
 
   return (
-    <div>
-      {html.map((el) => el)}
+    <div className='Result'>
+      {resultHtml}
     </div>
   );
 }

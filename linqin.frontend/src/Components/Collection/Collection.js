@@ -8,7 +8,7 @@ function Collection({ shapes, shaded }) {
   return (
     <div>
       <div className={`Level__Collection${shaded}`}>{shapes.map((s, i) =>
-        <Shape key={i} shape={s} shaded={shaded} />
+        <Shape key={i} shape={s} shaded={shaded} large='' />
       )}
       </div>
     </div>
