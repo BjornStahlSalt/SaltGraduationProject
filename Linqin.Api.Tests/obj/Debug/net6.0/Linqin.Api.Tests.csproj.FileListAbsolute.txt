@@ -14,7 +14,6 @@
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/Linqin.Api.Tests.deps.json
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/Linqin.Api.Tests.runtimeconfig.json
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/Linqin.Api.Tests.dll
-/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/ref/Linqin.Api.Tests.dll
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/Linqin.Api.Tests.pdb
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/FluentAssertions.dll
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll
@@ -285,3 +284,4 @@
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
 /Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api.Tests/bin/Debug/net6.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/Debug/net6.0/refint/Linqin.Api.Tests.dll
