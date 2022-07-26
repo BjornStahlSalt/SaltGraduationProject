@@ -4,8 +4,8 @@ import SubmitButton from './SubmitButton';
 import './Level.css';
 import PropertyList from '../ProperyList/PropertyList.js';
 import Result from '../Result/Result.js';
-import InfoIcon from '@mui/icons-material/Info';
 import { Button } from '@mui/material';
+import DescriptionButton from './DescriptionButton.js';
 
 
 function Level({ level }) {
@@ -136,10 +136,9 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      <PropertyList shapes={ level.startCollection } />
-      <h3 className='Level__Title'>{ level.title }</h3>
-      <Button startIcon={ <InfoIcon /> }></Button>
-      <p className='Level__Description'>{ level.prompt }</p>
+      {/* <PropertyList shapes={ level.startCollection } /> */ }
+      <h3 className='Level__Title'>{ level.title } <DescriptionButton level={ level } /></h3>
+      <p className='Level__Prompt'>{ level.prompt }</p>
       <div className='Level__Content'>
         <div>
           <Collection shapes={ level.startCollection } shaded='' />

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Shape.css';
 import circle from '../../Images/Circle.svg';
 import square from '../../Images/Square.svg';
+import ReactCardFlip from 'react-card-flip';
 import triangle from '../../Images/Triangle.svg';
 
 function Shape({ shape, shaded, large }) {
@@ -19,10 +20,24 @@ function Shape({ shape, shaded, large }) {
     return '';
 
   };
-
+  const [isFlipped, setIsFlipped] = useState(false);
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+  };
   return (
     <>
-      <img className={`Level__Shape--${shape.color} ${shaded} ${large}`} src={chooseImage(shape)} alt='A circle' />
+      <ReactCardFlip isFlipped={ isFlipped } flipDirection="horizontal">
+        <div className='Shape__Card--Front'>
+          <img className={ `Level__Shape--${shape.color} ${shaded}` } src={ chooseImage(shape) } alt='A circle' />
+          <button className='Shape__Card--FlipButton' onClick={ handleClick }></button>
+        </div>
+        <div className='Shape__Card--Back'>
+          <img className={ `Level__Shape--${shape.color} large` } src={ chooseImage(shape) } alt='A circle' />
+          <p className='Properties__Property'>.Shape = "{ shape.shape }"</p>
+          <p className='Properties__Property'>.Color = "{ shape.color }"</p>
+          <button className='Shape__Card--FlipButton' onClick={ handleClick }></button>
+        </div>
+      </ReactCardFlip>
     </>
   );
 }

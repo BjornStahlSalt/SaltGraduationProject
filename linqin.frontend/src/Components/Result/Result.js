@@ -10,7 +10,7 @@ function Result({ result, shaded }) {
 
     if (Array.isArray(result)) {
       setResultHtml(
-        <Collection shapes={result} shaded={shaded} />
+        <Collection shapes={ result } shaded={ shaded } />
       );
       return;
     }
@@ -19,7 +19,7 @@ function Result({ result, shaded }) {
       setResultHtml(
         <div>
           <div className='Result__Container'>
-            <p className='Result__Text'>{result}</p>
+            <p className='Result__Text'>{ result }</p>
           </div>
         </div>
       );
@@ -30,7 +30,7 @@ function Result({ result, shaded }) {
       setResultHtml(
         <div>
           <div className='Result__Container'>
-            <p className='Result__Text'>{result.toString()}</p>
+            <p className='Result__Text'>{ result.toString() }</p>
           </div>
         </div>
       );
@@ -42,7 +42,7 @@ function Result({ result, shaded }) {
       setResultHtml(
         <div>
           <div className='Result__Container'>
-            <Shape shape={result} shaded={shaded} large='' />
+            <Shape shape={ result } shaded={ shaded } large='' />
           </div>
         </div>
       );
@@ -54,7 +54,7 @@ function Result({ result, shaded }) {
 
   return (
     <div className='Result'>
-      {resultHtml}
+      { resultHtml }
     </div>
   );
 }
