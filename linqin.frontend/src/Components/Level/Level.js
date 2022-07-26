@@ -94,9 +94,13 @@ function Level({ level }) {
     setQueryResult([]);
     setUserInput('')
 
+    console.log('Here');
     if (level) {
+      console.log('There');
+      console.log(level);
+
       let temp = expectedResult;
-      if (Array.isArray(level) && level.expectedCollection) {
+      if (Array.isArray(level.expectedCollection) && level.expectedCollection) {
         console.log('expected array');
         temp = level.expectedCollection
       }
@@ -106,9 +110,9 @@ function Level({ level }) {
       else if (level.expectedBool) {
         temp = level.expectedBool;
       }
-      else if (level.expectedObject) {
+      else if (level.expectedSingle) {
         console.log('expected object');
-        temp = level.expectedObject;
+        temp = level.expectedSingle;
       }
       setExpectedResult(temp);
     }

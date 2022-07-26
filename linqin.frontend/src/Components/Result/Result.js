@@ -10,25 +10,41 @@ function Result({ result, shaded }) {
 
     if (Array.isArray(result)) {
       setResultHtml(
-        <Collection shapes={result} shaded='shaded' />
+        <Collection shapes={result} shaded={shaded} />
       );
       return;
     }
 
     if (typeof result === 'number') {
-      setResultHtml(<p className='Result__Text'>{result}</p>);
+      setResultHtml(
+        <div>
+          <div className='Result__Container'>
+            <p className='Result__Text'>{result}</p>
+          </div>
+        </div>
+      );
       return;
     }
 
     if (typeof result === 'boolean') {
-      setResultHtml(<p className='Result__Text'>{result.toString()}</p>);
+      setResultHtml(
+        <div>
+          <div className='Result__Container'>
+            <p className='Result__Text'>{result.toString()}</p>
+          </div>
+        </div>
+      );
       return;
     }
 
     if (typeof result === 'object') {
       console.log('We got an object');
       setResultHtml(
-        <Shape shape={result} shaded={shaded} large='' />
+        <div>
+          <div className='Result__Container'>
+            <Shape shape={result} shaded={shaded} large='' />
+          </div>
+        </div>
       );
       return;
     }
