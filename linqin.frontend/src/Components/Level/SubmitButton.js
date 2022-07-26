@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import { green, red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 export default function TestButton({ submitAnswer, compileError, loading }) {
     const timer = React.useRef();
@@ -34,8 +33,8 @@ export default function TestButton({ submitAnswer, compileError, loading }) {
         submitAnswer();
     };
     return (
-        <Box sx={ { display: 'flex', alignItems: 'center' } }>
-            <Box sx={ { m: 1, position: 'relative' } }>
+        <Box sx={ { display: 'flex', alignItems: 'center', justifyContent: 'center' } }>
+            <Box sx={ { m: 1, position: 'relative', } }>
                 <Button
                     variant="contained"
                     sx={ buttonSx }
