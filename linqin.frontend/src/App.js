@@ -29,7 +29,6 @@ function App() {
     <div className='Page'>
       <Nav levels={ levels } handleTitleClick={ handleTitleClick } />
       <div className='Page__Content'>
-        <Level level={ currentLevel } />
         <button className='Nav__LevelButton' onClick={ () => setCurrentLevel(null) }>Home</button>
         <div className='Page__Content'>
           { currentLevel === null ? <Home levels={ levels } setCurrentLevel={ setCurrentLevel } /> : <Level level={ currentLevel } /> }
