@@ -29,9 +29,17 @@ namespace LinqCompiler
 
         "public static class Helper" +
         "{" +
-          "public static object? ExecuteQuery(IEnumerable<ShapeModel> shapes)" +
+
+          "public static object ExecuteQuery(IEnumerable<ShapeModel> shapes)" +
           "{" +
-          $"return shapes.{linqQuery}" +
+            "try" +
+            "{" +
+              $"return shapes.{linqQuery}" +
+            "}" +
+            "catch(Exception ex)" +
+            "{" +
+              "return ex.Message;" +
+            "}" +
           "}" +
 
         "}";
@@ -46,6 +54,7 @@ namespace LinqCompiler
         Assembly.Load("System.Runtime, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a").Location,
         Assembly.Load("netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51").Location
       };
+
       // // Create a reference to the library
       var references = locations.Select(path => MetadataReference.CreateFromFile(path));
 
@@ -82,8 +91,8 @@ namespace LinqCompiler
           var issue = "";
           foreach (Diagnostic codeIssue in compilationResult.Diagnostics)
           {
-            issue += $"ID: {codeIssue.Id}, Message: {codeIssue.GetMessage()},Location: {codeIssue.Location.GetLineSpan()},Severity: {codeIssue.Severity}";
-            // issue += $"{codeIssue.GetMessage()}";
+            // issue += $"ID: {codeIssue.Id}, Message: {codeIssue.GetMessage()},Location: {codeIssue.Location.GetLineSpan()},Severity: {codeIssue.Severity}";
+            issue += $"{codeIssue.GetMessage()}";
           }
 
           return new ResponsePost()

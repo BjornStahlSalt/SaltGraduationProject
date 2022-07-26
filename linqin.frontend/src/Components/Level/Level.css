@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
 
 .Level {
   display: flex;
@@ -9,10 +9,9 @@
 }
 
 .Level__Title {
-  font-size: 70px;
-  margin: 0;
-  margin-top: 7rem;
-  font-family: 'Spectral SC', serif;
+  font-size: 50px;
+  margin: 6rem 0 2rem 0;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .Level__Description {
@@ -21,8 +20,20 @@
   font-size: 22px;
 }
 
+.Level__Content {
+  width: 100%;
+  justify-content: center;
+}
+
+.Level__InputBit {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  margin-left: 5px;
+  width: 90%;
+}
+
 .Level__InputForm {
-  width: 40vw;
   height: 2em;
   flex-basis: 90%;
   text-align: left;
@@ -32,13 +43,6 @@
 
 .Level__InputForm:focus {
   outline: none;
-}
-
-.Level__Button--Submit {
-  background-color: white;
-  margin-top: 10px;
-  border-radius: 8px;
-  border-width: 1px;
 }
 
 .preInput {
@@ -58,4 +62,13 @@
   width: 80%;
   background-color: rgba(0, 0, 0, 0);
 
+}
+
+.Level__Button--Submit {
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 8px;
+  border-width: 1px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
 }

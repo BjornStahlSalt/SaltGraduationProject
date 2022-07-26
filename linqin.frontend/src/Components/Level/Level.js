@@ -106,9 +106,13 @@ function Level({ level }) {
     setUserInput('');
     setCompileError('');
 
+    console.log('Here');
     if (level) {
+      console.log('There');
+      console.log(level);
+
       let temp = expectedResult;
-      if (Array.isArray(level) && level.expectedCollection) {
+      if (Array.isArray(level.expectedCollection) && level.expectedCollection) {
         console.log('expected array');
         temp = level.expectedCollection;
       }
@@ -118,9 +122,9 @@ function Level({ level }) {
       else if (level.expectedBool) {
         temp = level.expectedBool;
       }
-      else if (level.expectedObject) {
+      else if (level.expectedSingle) {
         console.log('expected object');
-        temp = level.expectedObject;
+        temp = level.expectedSingle;
       }
       setExpectedResult(temp);
     }
@@ -138,19 +142,21 @@ function Level({ level }) {
       <PropertyList shapes={ level.startCollection } />
       <h3 className='Level__Title'>{ level.title }</h3>
       <p className='Level__Description'>{ level.description }</p>
-      <div>
-        <Collection shapes={ level.startCollection } shaded='' />
+      <div className='Level__Content'>
+        <div>
+          <Collection shapes={ level.startCollection } shaded='' />
+        </div>
+        <form className='Level__InputBit' onSubmit={ e => handleSubmit(e) }>
+          <p className="preInput">shapes.</p>
+          <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
+        </form>
+        <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button>
+        <p>{ compileError }</p>
+        <SubmitButton submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
+        <Result result={ expectedResult } shaded='shaded' />
+        <Result result={ queryResult } shaded='' />
       </div>
-      <form className='Level__InputBit' onSubmit={ e => handleSubmit(e) }>
-        <p className="preInput">shapes.</p>
-        <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
-      </form>
-      <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button>
-      <p>{ compileError }</p>
-      <SubmitButton submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
-      <Result result={ expectedResult } shaded='shaded' />
-      <Result result={ queryResult } shaded='' />
     </div>
   );
 }
-export default Level;;
+export default Level;
