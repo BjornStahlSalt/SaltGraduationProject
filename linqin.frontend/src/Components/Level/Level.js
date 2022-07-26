@@ -4,6 +4,9 @@ import SubmitButton from './SubmitButton';
 import './Level.css';
 import PropertyList from '../ProperyList/PropertyList.js';
 import Result from '../Result/Result.js';
+import InfoIcon from '@mui/icons-material/Info';
+import { Button } from '@mui/material';
+
 
 function Level({ level }) {
   const [userInput, setUserInput] = useState("");
@@ -20,7 +23,6 @@ function Level({ level }) {
   const submitAnswer = () => {
     if (level == null)
       return;
-
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -59,6 +61,7 @@ function Level({ level }) {
 
       if (JSON.stringify(expectedList) === JSON.stringify(resultList)) {
         setCompileError('Correct!!');
+        localStorage.setItem(level.title, JSON.stringify(true));
       }
       else {
         setCompileError('Wrong Answer!');
@@ -127,7 +130,6 @@ function Level({ level }) {
 
   }, [level]);
 
-
   if (level == null) {
     return (<div></div>);
   }
@@ -136,7 +138,8 @@ function Level({ level }) {
     <div className='Level'>
       <PropertyList shapes={ level.startCollection } />
       <h3 className='Level__Title'>{ level.title }</h3>
-      <p className='Level__Description'>{ level.description }</p>
+      <Button startIcon={ <InfoIcon /> }></Button>
+      <p className='Level__Description'>{ level.prompt }</p>
       <div className='Level__Content'>
         <div>
           <Collection shapes={ level.startCollection } shaded='' />
@@ -147,9 +150,9 @@ function Level({ level }) {
         </form>
         <p>{ compileError }</p>
         <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
-        <Result result={ expectedResult } shaded='shaded' />
-        <Result result={ queryResult } shaded='' />
       </div>
+      <Result result={ expectedResult } shaded='shaded' />
+      <Result result={ queryResult } shaded='' />
     </div>
   );
 }

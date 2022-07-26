@@ -33,9 +33,7 @@ function App() {
     <div className='Page'>
       <Nav levels={ levels } handleTitleClick={ handleTitleClick } handleHomeClick={ handleHomeClick } />
       <div className='Page__Content'>
-        <div className='Page__Content'>
-          { currentLevel === null ? <Home levels={ levels } setCurrentLevel={ setCurrentLevel } /> : <Level level={ currentLevel } /> }
-        </div>
+        { currentLevel === null ? <Home levels={ levels } setCurrentLevel={ setCurrentLevel } /> : <Level level={ currentLevel } /> }
       </div>
     </div>
   );
