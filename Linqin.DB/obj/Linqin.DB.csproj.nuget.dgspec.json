@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj": {}
+    "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj": {}
   },
   "projects": {
-    "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj": {
+    "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
+        "projectUniqueName": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
         "projectName": "Linqin.DB",
-        "projectPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
+        "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
         "packagesPath": "/Users/saltdev/.nuget/packages/",
-        "outputPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/obj/",
+        "outputPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/saltdev/.nuget/NuGet/NuGet.Config"
