@@ -13,7 +13,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 import './Nav.css';
 
-export default function Nav({ levels, handleTitleClick }) {
+export default function Nav({ levels, handleTitleClick, handleHomeClick }) {
     const [state, setState] = React.useState({ level: false, });
 
 
@@ -28,9 +28,8 @@ export default function Nav({ levels, handleTitleClick }) {
 
     const list = (anchor) => (
         <Box>
-            <HomeIcon></HomeIcon>
-            <BookmarkIcon></BookmarkIcon>
-            <h3>
+            <Button size='2px' startIcon={ <HomeIcon fontSize="medium" sx={ { position: 'relative', left: '6px' } } /> } onClick={ handleHomeClick }></Button>
+            <h3 className="nav__title">
                 Levels
             </h3 >
             <Divider />

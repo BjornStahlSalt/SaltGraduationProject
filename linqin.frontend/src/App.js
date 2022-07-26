@@ -24,12 +24,15 @@ function App() {
   const handleTitleClick = (level) => {
     setCurrentLevel(level);
   };
+  const handleHomeClick = () => {
+    setCurrentLevel(null);
+  };
+
 
   return (
     <div className='Page'>
-      <Nav levels={ levels } handleTitleClick={ handleTitleClick } />
+      <Nav levels={ levels } handleTitleClick={ handleTitleClick } handleHomeClick={ handleHomeClick } />
       <div className='Page__Content'>
-        <button className='Nav__LevelButton' onClick={ () => setCurrentLevel(null) }>Home</button>
         <div className='Page__Content'>
           { currentLevel === null ? <Home levels={ levels } setCurrentLevel={ setCurrentLevel } /> : <Level level={ currentLevel } /> }
         </div>

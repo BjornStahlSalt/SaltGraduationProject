@@ -39,17 +39,12 @@ function Level({ level }) {
         if (response.errorMessage === null) {
           console.log(response.listOfShapes);
           checkAnswer(level.expectedCollection, response.listOfShapes);
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
+          setLoading(false);
         }
         else {
           setQueryResult([]);
           setCompileError(response.errorMessage);
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
-
+          setLoading(false);
         }
       })
       .catch(error => console.log(error));
@@ -150,8 +145,8 @@ function Level({ level }) {
           <p className="preInput">shapes.</p>
           <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
         </form>
-        <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
         <p>{ compileError }</p>
+        <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
         <Result result={ expectedResult } shaded='shaded' />
         <Result result={ queryResult } shaded='' />
       </div>
