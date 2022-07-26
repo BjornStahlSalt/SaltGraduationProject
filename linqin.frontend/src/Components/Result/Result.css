@@ -1,0 +1,22 @@
+.Result {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: left; */
+  width: 100%;
+  /* padding-left: 25vw; */
+}
+
+.Result__Text {
+  font-size: 55px;
+  text-align: left;
+  padding: 0.4em 0;
+  margin: 0%;
+}
+
+.Result__Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-left: 25vw;
+  /* margin-bottom: 1.5rem; */
+}

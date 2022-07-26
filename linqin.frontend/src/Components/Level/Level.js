@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
 import './Level.css';
-
+import PropertyList from '../ProperyList/PropertyList.js'
+import Result from '../Result/Result.js';
 
 function Level({ level }) {
   const [userInput, setUserInput] = useState("");
   const [compileError, setCompileError] = useState("");
-  const [queryShapes, setQueryShapes] = useState([]);
+  const [queryResult, setQueryResult] = useState([]);
+  const [expectedResult, setExpectedResult] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,11 +34,11 @@ function Level({ level }) {
       .then(response => response.json())
       .then(response => {
         if (response.errorMessage === null) {
-          setQueryShapes(response.listOfShapes);
+          console.log(response.listOfShapes);
           checkAnswer(level.expectedCollection, response.listOfShapes);
         }
         else {
-          setQueryShapes([]);
+          setQueryResult([]);
           setCompileError(response.errorMessage);
         }
       })
@@ -44,23 +46,77 @@ function Level({ level }) {
   };
 
   const checkAnswer = (expected, result) => {
-    const expectedList = expected.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
-    if (JSON.stringify(expectedList) === JSON.stringify(result)) {
-      setCompileError('Correct!!');
+    if (Array.isArray(result)) {
+      console.log('We got an array');
+
+      const expectedList = expected.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
+      const resultList = result.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
+
+      if (JSON.stringify(expectedList) === JSON.stringify(resultList)) {
+        setCompileError('Correct!!');
+      }
+      else {
+        setCompileError('Wrong Answer!');
+      }
+      setQueryResult(resultList);
+
+      return;
     }
-    else {
-      setCompileError('Wrong Answer!');
+
+    if (typeof result === 'number') {
+      console.log('We got a number');
+      setQueryResult(result);
+      return;
     }
+
+    if (typeof result === 'boolean') {
+      console.log('We got a bool');
+      setQueryResult(result);
+      return;
+    }
+
+    if (typeof result === 'object') {
+      console.log('We got an object');
+      setQueryResult(result);
+      return;
+    }
+
+
+    console.log('Could not read response');
   };
 
   const updateInput = (e) => {
     setUserInput(e.target.value)
-    setQueryShapes([]);
+    setQueryResult([]);
   }
 
   useEffect(() => {
-    setQueryShapes([]);
+    setQueryResult([]);
     setUserInput('')
+
+    console.log('Here');
+    if (level) {
+      console.log('There');
+      console.log(level);
+
+      let temp = expectedResult;
+      if (Array.isArray(level.expectedCollection) && level.expectedCollection) {
+        console.log('expected array');
+        temp = level.expectedCollection
+      }
+      else if (level.expectedInt) {
+        temp = level.expectedInt;
+      }
+      else if (level.expectedBool) {
+        temp = level.expectedBool;
+      }
+      else if (level.expectedSingle) {
+        console.log('expected object');
+        temp = level.expectedSingle;
+      }
+      setExpectedResult(temp);
+    }
+
 
   }, [level]);
 
@@ -71,22 +127,25 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
+      <PropertyList shapes={level.startCollection} />
       <h3 className='Level__Title'>{level.title}</h3>
       <p className='Level__Description'>{level.description}</p>
       <div className='Level__Content'>
       <div>
         <Collection shapes={level.startCollection} shaded='' />
       </div>
-        <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
-          <p className="preInput">shapes.</p>
-          <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
-        </form>
+      <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
+        <p className="preInput">shapes.</p>
+        <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
+      </form>
       <button className='Level__Button--Submit' type='submit' onClick={submitAnswer} >Check Answer</button>
       <p>{compileError}</p>
-      <Collection shapes={level.expectedCollection} shaded='shaded' />
-      <Collection shapes={queryShapes} shaded='' />
-      </div>
+      <Result result={expectedResult} shaded='shaded' />
+      <Result result={queryResult} shaded='' />
+      {/* <Collection shapes={level.expectedCollection} shaded='shaded' />
+      <Collection shapes={queryShapes} shaded='' /> */}
+    </div>
     </div>
   );
 }
-export default Level;;
+export default Level;

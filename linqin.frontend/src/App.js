@@ -26,8 +26,8 @@ function App() {
     <div className='Page'>
       <nav className='Nav'>
         <div className='Nav__Links'>
-          <a href="NotYet"> <img className="Nav__Img" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"></img></a>
-          <a href="NotYet"> <img className="Nav__Img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_bookmark.svg/1200px-OOjs_UI_icon_bookmark.svg.png"></img></a>
+          <a href="NotYet"> <img className="Nav__Img" src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt='Home'></img></a>
+          <a href="NotYet"> <img className="Nav__Img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_bookmark.svg/1200px-OOjs_UI_icon_bookmark.svg.png" alt='Favourite'></img></a>
         </div>
         <button className='Nav__LevelButton' onClick={() => setCurrentLevel(null)}>Home</button>
         <h2 className='Nav__Title'>Levels</h2>

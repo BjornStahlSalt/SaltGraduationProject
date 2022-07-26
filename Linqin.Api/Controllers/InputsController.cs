@@ -14,15 +14,11 @@ public class InputsController : ControllerBase
   {
     try
     {
-      return Ok(Compiler.ExecuteString(linqQuery.Query, linqQuery.listOfShapes));
+      return Ok(await Compiler.ExecuteString(linqQuery.Query, linqQuery.listOfShapes));
     }
     catch (Exception ex)
     {
       return Ok(new ResponsePost() { ErrorMessage = ex.Message });
-    }
-    catch
-    {
-      return BadRequest();
     }
   }
 
