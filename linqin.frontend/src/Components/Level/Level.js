@@ -73,6 +73,7 @@ function Level({ level }) {
     <div className='Level'>
       <h3 className='Level__Title'>{level.title}</h3>
       <p className='Level__Description'>{level.description}</p>
+      <div className='Level__Content'>
       <div>
         <Collection shapes={level.startCollection} shaded='' />
       </div>
@@ -84,6 +85,7 @@ function Level({ level }) {
       <p>{compileError}</p>
       <Collection shapes={level.expectedCollection} shaded='shaded' />
       <Collection shapes={queryShapes} shaded='' />
+      </div>
     </div>
   );
 }
