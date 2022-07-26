@@ -522,7 +522,7 @@
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/scopedcss/bundle/Linqin.DB.styles.css
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/Linqin.DB.csproj.CopyComplete
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/Linqin.DB.dll
-/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/refint/Linqin.DB.dll
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/Linqin.DB.pdb
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/Linqin.DB.genruntimeconfig.cache
 /Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/ref/Linqin.DB.dll
+/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.DB/obj/Debug/net6.0/refint/Linqin.DB.dll
