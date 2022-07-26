@@ -150,9 +150,8 @@ function Level({ level }) {
           <p className="preInput">shapes.</p>
           <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
         </form>
-        <button className='Level__Button--Submit' type='submit' onClick={ submitAnswer } >Check Answer</button>
+        <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
         <p>{ compileError }</p>
-        <SubmitButton submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
         <Result result={ expectedResult } shaded='shaded' />
         <Result result={ queryResult } shaded='' />
       </div>
