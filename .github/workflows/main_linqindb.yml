@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - LinqinDB
+name: Build and deploy ASP.Net Core app to Azure Web App - linqinDB
 
 on:
   push:
@@ -11,11 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
-
-    defaults:
-      run:
-        working-directory: ./Linqin.DB
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -39,7 +35,7 @@ jobs:
           path: ${{env.DOTNET_ROOT}}/myapp
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'Production'
@@ -55,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'LinqinDB'
+          app-name: 'linqinDB'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_98E0F2F9C108457ABFE058DF12CA160E }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FC99B581099D446593715A1C327DE667 }}
           package: .
