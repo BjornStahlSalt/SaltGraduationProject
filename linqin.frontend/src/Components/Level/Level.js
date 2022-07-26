@@ -97,12 +97,12 @@ function Level({ level }) {
 
   const updateInput = (e) => {
     setUserInput(e.target.value);
-    setQueryShapes([]);
+    setQueryResult([]);
     setCompileError('');
   };
 
   useEffect(() => {
-    setQueryShapes([]);
+    setQueryResult([]);
     setUserInput('');
     setCompileError('');
 
