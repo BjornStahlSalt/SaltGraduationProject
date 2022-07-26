@@ -14,7 +14,7 @@ if (app.Environment.IsDevelopment())
 {
   app.UseSwagger();
   app.UseSwaggerUI();
-  app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins(new string[] { "http://localhost:3000", "https://linqer.herokuapp.com" }));
+  app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins(new string[] { "http://localhost:3000", "https://linqer.herokuapp.com", "https://calm-smoke-042ccb503.1.azurestaticapps.net" }));
 }
 
 app.UseHttpsRedirection();

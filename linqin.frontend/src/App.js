@@ -12,7 +12,7 @@ function App() {
   const [currentLevel, setCurrentLevel] = useState(null);
 
   useEffect(() => {
-    fetch('https://localhost:7186/api/Levels')
+    fetch('https://linqindb.azurewebsites.net/api/Levels')
       .then(response => response.json())
       .then(data => setLevels(data));
   }, []);
@@ -27,11 +27,11 @@ function App() {
 
   return (
     <div className='Page'>
-      <Nav levels={ levels } handleTitleClick={ handleTitleClick } />
+      <Nav levels={levels} handleTitleClick={handleTitleClick} />
       <div className='Page__Content'>
-        <button className='Nav__LevelButton' onClick={ () => setCurrentLevel(null) }>Home</button>
+        <button className='Nav__LevelButton' onClick={() => setCurrentLevel(null)}>Home</button>
         <div className='Page__Content'>
-          { currentLevel === null ? <Home levels={ levels } setCurrentLevel={ setCurrentLevel } /> : <Level level={ currentLevel } /> }
+          {currentLevel === null ? <Home levels={levels} setCurrentLevel={setCurrentLevel} /> : <Level level={currentLevel} />}
         </div>
       </div>
     </div>
