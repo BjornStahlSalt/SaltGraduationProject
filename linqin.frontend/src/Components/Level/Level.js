@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
 import SubmitButton from './SubmitButton';
 import './Level.css';
-import PropertyList from '../ProperyList/PropertyList.js';
 import Result from '../Result/Result.js';
-import { Button } from '@mui/material';
 import DescriptionButton from './DescriptionButton.js';
 
 
@@ -126,8 +124,6 @@ function Level({ level }) {
       }
       setExpectedResult(temp);
     }
-
-
   }, [level]);
 
   if (level == null) {
@@ -139,20 +135,20 @@ function Level({ level }) {
       {/* <PropertyList shapes={ level.startCollection } /> */ }
       <h3 className='Level__Title'>{ level.title } <DescriptionButton level={ level } /></h3>
       <p className='Level__Prompt'>{ level.prompt }</p>
-      <div className='Level__Content'>
-        <div>
+      
           <Collection shapes={ level.startCollection } shaded='' />
-        </div>
+  
         <form className='Level__InputBit' onSubmit={ e => handleSubmit(e) }>
           <p className="preInput">shapes.</p>
           <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
         </form>
         <p>{ compileError }</p>
         <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
-      </div>
+      <div className='Level__ResultsContainer'>
       <Result result={ expectedResult } shaded='shaded' />
       <Result result={ queryResult } shaded='' />
-    </div>
+      </div>
+      </div>
   );
 }
 export default Level;

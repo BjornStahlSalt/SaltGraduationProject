@@ -40,11 +40,12 @@ img {
 .Level__Collectionshaded {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  flex-grow: 1;
+  /* justify-content: left;
   margin-bottom: -100%;
   margin-left: 25%;
   margin-right: auto;
-  margin-top: 7rem;
+  margin-top: 7rem; */
 }
 
 .Shape__Card--Front {

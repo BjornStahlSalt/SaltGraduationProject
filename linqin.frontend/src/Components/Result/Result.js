@@ -17,22 +17,18 @@ function Result({ result, shaded }) {
 
     if (typeof result === 'number') {
       setResultHtml(
-        <div>
-          <div className='Result__Container'>
+          <>
             <p className='Result__Text'>{ result }</p>
-          </div>
-        </div>
+          </>
       );
       return;
     }
 
     if (typeof result === 'boolean') {
       setResultHtml(
-        <div>
-          <div className='Result__Container'>
+          <>
             <p className='Result__Text'>{ result.toString() }</p>
-          </div>
-        </div>
+        </>
       );
       return;
     }
@@ -40,20 +36,16 @@ function Result({ result, shaded }) {
     if (typeof result === 'object') {
       console.log('We got an object');
       setResultHtml(
-        <div>
-          <div className='Result__Container'>
+          <>
             <Shape shape={ result } shaded={ shaded } large='' />
-          </div>
-        </div>
+          </>
       );
       return;
     }
-
-
   }, [result]);
 
   return (
-    <div className='Result'>
+    <div className= {`Result${shaded}`}>
       { resultHtml }
     </div>
   );

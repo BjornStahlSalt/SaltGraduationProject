@@ -1,9 +1,20 @@
 .Result {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
-  justify-content: left; */
+  justify-content: left;
+  margin: auto;
+  grid-area: 1 / 1 / 2 / 2;
   width: 100%;
-  /* padding-left: 25vw; */
+
+
+}
+
+.Resultshaded {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  grid-area: 1 / 1 / 2 / 2;
+  width: 100%;
 }
 
 .Result__Text {
@@ -13,10 +24,10 @@
   margin: 0%;
 }
 
-.Result__Container {
+/* .Result__Container {
   display: flex;
   flex-direction: row;
   justify-content: left;
   margin-left: 25vw;
-  /* margin-bottom: 1.5rem; */
-}
+  margin-bottom: 1.5rem;
+} */
