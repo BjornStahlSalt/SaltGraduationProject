@@ -12,100 +12,11 @@ using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Runtime.InteropServices;
 
 namespace LinqCompiler
 {
-  public static class Compiler
+  public static class CompilerExe
   {
-
-    // public static object? CreateThread(Func<object?> func)
-    // {
-    //   object? back = null;
-    //   try
-    //   {
-    //     var thread = new Thread(() =>
-    //     {
-    //       back = func();
-    //     });
-
-    //     thread.Start();
-
-    //     if (!thread.Join(200))
-    //     {
-    //       // I know... I know...
-    //       thread.Abort();
-    //       thread.Join();
-    //     }
-    //   }
-    //   catch (PlatformNotSupportedException abortException)
-    //   {
-    //     // Sue me
-    //     throw new Exception("Query ran for too long.");
-    //   }
-    //   return back;
-    // }
-    // public static async Task<string> CreateThread()
-    // {
-    //   string back = "";
-    //   try
-    //   {
-    //     var thread = new Thread(() =>
-    //     {
-    //       back = "hmm";
-    //     });
-
-    //     thread.Start();
-
-    //     if (!thread.Join(200))
-    //     {
-    //       // I know... I know...
-    //       thread.Abort();
-    //       thread.Join();
-    //     }
-    //   }
-    //   catch (PlatformNotSupportedException abortException)
-    //   {
-    //     // Sue me
-    //     throw new Exception("Query ran for too long.");
-    //   }
-    //   return back;
-    // }
-
-    public static T RunWithAbort<T>(this Func<T> func, int milliseconds) => RunWithAbort(func, new TimeSpan(0, 0, 0, 0, milliseconds));
-    public static T RunWithAbort<T>(this Func<T> func, TimeSpan delay)
-    {
-      if (func == null)
-        throw new ArgumentNullException(nameof(func));
-
-      var source = new CancellationTokenSource(delay);
-      var item = default(T);
-      var handle = IntPtr.Zero;
-      var fn = new Action(() =>
-      {
-        using (source.Token.Register(() => TerminateThread(handle, 0)))
-        {
-          item = func();
-        }
-      });
-
-      handle = CreateThread(IntPtr.Zero, IntPtr.Zero, fn, IntPtr.Zero, 0, out var id);
-      WaitForSingleObject(handle, 100 + (int)delay.TotalMilliseconds);
-      CloseHandle(handle);
-      return item;
-    }
-
-    [DllImport("kernel32")]
-    private static extern bool TerminateThread(IntPtr hThread, int dwExitCode);
-
-    [DllImport("kernel32")]
-    private static extern IntPtr CreateThread(IntPtr lpThreadAttributes, IntPtr dwStackSize, Delegate lpStartAddress, IntPtr lpParameter, int dwCreationFlags, out int lpThreadId);
-
-    [DllImport("kernel32")]
-    private static extern bool CloseHandle(IntPtr hObject);
-
-    [DllImport("kernel32")]
-    private static extern int WaitForSingleObject(IntPtr hHandle, int dwMilliseconds);
 
     public static ResponsePost ExecuteString(string linqQuery, IEnumerable<ShapeModel> startCollection)
     {
@@ -147,52 +58,77 @@ namespace LinqCompiler
       // // Create a reference to the library
       var references = locations.Select(path => MetadataReference.CreateFromFile(path));
 
-      var tree = SyntaxFactory.ParseSyntaxTree(code, CSharpParseOptions.Default.WithKind(SourceCodeKind.Script));
-      var compilation = CSharpCompilation.CreateScriptCompilation("Temp")
+      var fileName = "temp.exe";
+      var tree = SyntaxFactory.ParseSyntaxTree(code);
+      var compilation = CSharpCompilation.Create(fileName)
         .WithOptions(
           new CSharpCompilationOptions(OutputKind.WindowsRuntimeApplication))
+            // .AddReferences(new MetadataReference[] { systemReference, linqReference, IEnumerableReference })
             .AddReferences(references)
             .AddSyntaxTrees(tree);
-
-      using (var dll = new MemoryStream())
-      using (var pdb = new MemoryStream())
+      string path = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+      EmitResult compilationResult = compilation.Emit(path);
+      if (compilationResult.Success)
       {
-        EmitResult compilationResult = compilation.Emit(dll, pdb);
-
-        if (compilationResult.Success)
+        // Load the assembly
+        Assembly asm = AssemblyLoadContext.Default.LoadFromAssemblyPath(path);
+        // Invoke the RoslynCore.Helper.CalculateCircleArea method passing an argument
+        // double radius = 10;
+        var result = asm.GetType("RoslynCore.Helper").GetMethod("ExecuteQuery").Invoke(null, new object[] { startCollection });
+        foreach (var num in result as IEnumerable<int>)
         {
-          var assembly = Assembly.Load(dll.ToArray(), pdb.ToArray());
-
-          var type = assembly.GetType("Script+Helper");
-          var method = type?.GetMethod("ExecuteQuery");
-
-
-          var result = RunWithAbort<object?>(() => method?.Invoke(null, new object[] { startCollection }), 200);
-          // var result = CreateThread(() => method?.Invoke(null, new object[] { startCollection }));
-
-          // var str = result as IEnumerable<ShapeModel>;
-
-          // if (str == null)
-          //   throw new Exception("Unknown error at execution");
-
-          return new ResponsePost() { ListOfShapes = result };
+          Console.WriteLine(num);
         }
-        else
+        // Console.WriteLine($"Circle area with radius = {radius} is {result}");
+        Console.WriteLine($"***************************************************************************");
+      }
+      else
+      {
+        foreach (Diagnostic codeIssue in compilationResult.Diagnostics)
         {
-          var issue = "";
-          foreach (Diagnostic codeIssue in compilationResult.Diagnostics)
-          {
-            // issue += $"ID: {codeIssue.Id}, Message: {codeIssue.GetMessage()},Location: {codeIssue.Location.GetLineSpan()},Severity: {codeIssue.Severity}";
-            issue += $"{codeIssue.GetMessage()}";
-          }
-
-          return new ResponsePost()
-          {
-            ListOfShapes = new List<ShapeModel>(),
-            ErrorMessage = issue
-          };
+          string issue = $"ID: {codeIssue.Id}, Message: {codeIssue.GetMessage()},Location: {codeIssue.Location.GetLineSpan()},Severity: {codeIssue.Severity}";
+          Console.WriteLine(issue);
         }
       }
+      return new ResponsePost();
+      // using (var dll = new MemoryStream())
+      // using (var pdb = new MemoryStream())
+      // {
+      //   EmitResult compilationResult = compilation.Emit(dll, pdb);
+
+      //   if (compilationResult.Success)
+      //   {
+      //     var assembly = Assembly.Load(dll.ToArray(), pdb.ToArray());
+
+      //     var type = assembly.GetType("Script+Helper");
+      //     var method = type?.GetMethod("ExecuteQuery");
+
+      //     // var result = method?.Invoke(null, new object[] { startCollection });
+      //     var result = CreateThread(() => method?.Invoke(null, new object[] { startCollection }));
+
+      //     // var str = result as IEnumerable<ShapeModel>;
+
+      //     // if (str == null)
+      //     //   throw new Exception("Unknown error at execution");
+
+      //     return new ResponsePost() { ListOfShapes = result };
+      //   }
+      //   else
+      //   {
+      //     var issue = "";
+      //     foreach (Diagnostic codeIssue in compilationResult.Diagnostics)
+      //     {
+      //       // issue += $"ID: {codeIssue.Id}, Message: {codeIssue.GetMessage()},Location: {codeIssue.Location.GetLineSpan()},Severity: {codeIssue.Severity}";
+      //       issue += $"{codeIssue.GetMessage()}";
+      //     }
+
+      //     return new ResponsePost()
+      //     {
+      //       ListOfShapes = new List<ShapeModel>(),
+      //       ErrorMessage = issue
+      //     };
+      //   }
+      // }
     }
   }
 }

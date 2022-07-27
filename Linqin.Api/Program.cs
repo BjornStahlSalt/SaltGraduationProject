@@ -1,3 +1,5 @@
+using Linqin.Api.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,5 +24,17 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+LinqCompiler.CompilerExe.ExecuteString("Distinct();", new List<ShapeModel>
+    {
+      new ShapeModel { Shape = "Circle", Color = "Red", PriorityValue = 1},
+      new ShapeModel { Shape = "Square", Color = "Green", PriorityValue = 3},
+      new ShapeModel { Shape = "Square", Color = "Blue", PriorityValue = 3},
+      new ShapeModel { Shape = "Triangle", Color = "Green", PriorityValue = 2},
+      new ShapeModel { Shape = "Square", Color = "Red", PriorityValue = 3},
+      new ShapeModel { Shape = "Triangle", Color = "Green", PriorityValue = 2}
+    }
+    );
 
 app.Run();
