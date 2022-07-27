@@ -47,7 +47,7 @@ public class CSharpCompilerTests // controller, coderunner, fiddleclient
   [InlineData("TakeLast(2);", new int[] { 3, 2 })]
   [InlineData("Distinct();", new int[] { 1, 3, 3, 2, 3 })]
   [InlineData("OrderBy(x => x.PriorityValue).Reverse().Take(4).Where(x => x.Color != \"Blue\");", new int[] { 3, 3 })]
-  public async void executestring_returns_query_result(string query, int[] expected)
+  public void executestring_returns_query_result(string query, int[] expected)
   {
     // Act
     var result = Compiler.ExecuteString(query, listOfShapes);
@@ -69,7 +69,7 @@ public class CSharpCompilerTests // controller, coderunner, fiddleclient
   // }
 
   [Fact]
-  public async void same_properties_should_be_equal()
+  public void same_properties_should_be_equal()
   {
     // Arrange
     var array = new List<ShapeModel>(){
@@ -85,38 +85,9 @@ public class CSharpCompilerTests // controller, coderunner, fiddleclient
     result.Should().Be(true);
   }
 
-  // [Theory]
-  // [InlineData(0)]
-  // [InlineData(10)]
-  // [InlineData(50)]
-  // [InlineData(150)]
-  // [InlineData(195)]
-  // public void should_return_yes(int sleepTime)
-  // {
-  //   // Act
-  //   var result = Compiler.CreateThread(() => { Thread.Sleep(sleepTime); return "Yes"; }) as string;
-
-  //   // Assert
-  //   result.Should().Be("Yes");
-  // }
-
-  // [Theory]
-  // [InlineData(200)]
-  // [InlineData(205)]
-  // [InlineData(500)]
-  // public async void should_throw_error(int sleepTime)
-  // {
-
-  //   // Act
-  //   Action action = () => { var result = Compiler.CreateThread(() => { Thread.Sleep(sleepTime); return "Yes"; }); };
-
-  //   // Assert
-  //   action.Should().Throw<Exception>().WithMessage("Query ran for too long.");
-  // }
-
 
   [Fact]
-  public async void executestring_should_stop_thread()
+  public void executestring_should_stop_thread()
   {
     // Arrange
     string query = "Where(s => {while(true){}return true;});";

@@ -6671,19 +6671,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/saltdev/.nuget/packages/": {}
+    "C:\\Users\\Bjorn\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
+      "projectUniqueName": "c:\\Users\\Bjorn\\Documents\\Salt\\SaltGraduationProject\\Linqin.Api.Tests\\Linqin.Api.Tests.csproj",
       "projectName": "Linqin.Api.Tests",
-      "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
-      "packagesPath": "/Users/saltdev/.nuget/packages/",
-      "outputPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/",
+      "projectPath": "c:\\Users\\Bjorn\\Documents\\Salt\\SaltGraduationProject\\Linqin.Api.Tests\\Linqin.Api.Tests.csproj",
+      "packagesPath": "C:\\Users\\Bjorn\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Bjorn\\Documents\\Salt\\SaltGraduationProject\\Linqin.Api.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/saltdev/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Bjorn\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -6695,8 +6695,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
-              "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj"
+            "c:\\Users\\Bjorn\\Documents\\Salt\\SaltGraduationProject\\Linqin.Api\\Linqin.Api.csproj": {
+              "projectPath": "c:\\Users\\Bjorn\\Documents\\Salt\\SaltGraduationProject\\Linqin.Api\\Linqin.Api.csproj"
             }
           }
         }
@@ -6751,7 +6751,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
