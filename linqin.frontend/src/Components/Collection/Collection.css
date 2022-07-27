@@ -54,7 +54,7 @@ img {
   border: solid;
   border-color: rgba(255, 255, 255, 0);
   margin-right: 5px;
-  box-shadow: 0 0 10px #2e2e2e;
+  box-shadow: 0 0 0px #2e2e2e;
   border-radius: 7px;
 }
 
@@ -66,7 +66,7 @@ img {
   border: solid;
   border-color: rgba(255, 255, 255, 0.154);
   margin-right: 5px;
-  box-shadow: 0 0 10px #2e2e2e;
+  box-shadow: 0 0 5px #2e2e2e;
   border-radius: 7px;
 
 }
