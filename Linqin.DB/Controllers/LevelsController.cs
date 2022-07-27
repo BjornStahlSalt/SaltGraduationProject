@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Linqin.DB.Models;
 using Linqin.DB.Data;
+using Newtonsoft.Json;
 
 namespace Linqin.DB.Controllers
 {
@@ -88,6 +89,14 @@ namespace Linqin.DB.Controllers
       return NoContent();
     }
 
+    [HttpPut]
+    public IActionResult UpdateLevel(string Id, PostRequest request)
+    {
+      _storage.UpdateData(Id, request);
+
+      return NoContent();
+    }
+
 
     [HttpPost]
     //[ValidateAntiForgeryToken]
@@ -96,65 +105,5 @@ namespace Linqin.DB.Controllers
       var id = _storage.AddData(request);
       return CreatedAtAction(nameof(GetOneLevel), new { id = id }, request);
     }
-
-
-
-
-    // // POST: Levels/Edit/5
-    // // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    // [HttpPost]
-    // [ValidateAntiForgeryToken]
-    // public async Task<IActionResult> Edit(int id, [Bind("Id,Title,LinqMethod,Description")] Level level)
-    // {
-    //   if (id != level.Id)
-    //   {
-    //     return NotFound();
-    //   }
-
-    //   if (ModelState.IsValid)
-    //   {
-    //     try
-    //     {
-    //       _context.Update(level);
-    //       await _context.SaveChangesAsync();
-    //     }
-    //     catch (DbUpdateConcurrencyException)
-    //     {
-    //       if (!LevelExists(level.Id))
-    //       {
-    //         return NotFound();
-    //       }
-    //       else
-    //       {
-    //         throw;
-    //       }
-    //     }
-    //     return RedirectToAction(nameof(Index));
-    //   }
-    //   return View(level);
-    // }
-
-    // // GET: Levels/Delete/5
-    // public async Task<IActionResult> Delete(int? id)
-    // {
-    //   if (id == null || _context.Level == null)
-    //   {
-    //     return NotFound();
-    //   }
-
-    //   var level = await _context.Level
-    //       .FirstOrDefaultAsync(m => m.Id == id);
-    //   if (level == null)
-    //   {
-    //     return NotFound();
-    //   }
-
-    //   return View(level);
-    // }
-
-    // POST: Levels/Delete/5
-
-
   }
 }

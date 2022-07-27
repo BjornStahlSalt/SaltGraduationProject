@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lBLLRovg5jQRfrNF0aDtY1aD7GpF/CuCexQw4oTC4EfoaBQ28qfWrOVHR84KpoM2gzSgmV7agYfy1HCbdyjVeQ==",
+<<<<<<< HEAD
+  "dgSpecHash": "lTKhgYBbWhH9vn0UgHk2MIsoUJdeR1qP1KqKdw8xdIjp40HZDfymLWsmaPe6IB97GkVX6su4Mq2XTySTsA+8wQ==",
+=======
+  "dgSpecHash": "BxO7ng1tErDDAcJCn6SbWhXtoj/zlNQ6msn1blNsQD22S8sZTq2uNgCFQ97aiQUB0hrwy1RRXhbP0SFGjzq8kQ==",
+>>>>>>> MaterialUI
   "success": true,
-  "projectFilePath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
+  "projectFilePath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj",
   "expectedPackageFiles": [
     "/Users/saltdev/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3/microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
     "/Users/saltdev/.nuget/packages/microsoft.codeanalysis.common/4.2.0/microsoft.codeanalysis.common.4.2.0.nupkg.sha512",
