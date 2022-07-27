@@ -1,5 +1,4 @@
 using Azure.Data.Tables;
-using Azure.Data.Tables.Models;
 using Linqin.DB.Models;
 using Azure;
 using Newtonsoft.Json;
@@ -22,7 +21,11 @@ public class LevelRepository
     var accountName = Environment.GetEnvironmentVariable("AZURE_TABLE_STORAGE_ACCOUNT_NAME");
     var storageAccountKey = Environment.GetEnvironmentVariable("AZURE_TABLE_STORAGE_ACCOUNT_KEY");
 
-    var serviceClient = new TableServiceClient(new Uri(storageUri), new TableSharedKeyCredential(accountName, storageAccountKey));
+    var serviceClient = new TableServiceClient(
+      new Uri(storageUri),
+      new TableSharedKeyCredential(accountName, storageAccountKey)
+    );
+
     serviceClient.CreateTableIfNotExists(_tableName);
   }
 
@@ -32,8 +35,6 @@ public class LevelRepository
     TableServiceClient serviceClient = new TableServiceClient(connectionString);
     return new TableClient(connectionString, _tableName);
   }
-
-
   public string AddData(PostRequest request)
   {
     var rowKey = Guid.NewGuid().ToString();
@@ -53,17 +54,9 @@ public class LevelRepository
     return rowKey;
   }
 
-  public Level GetLevelEntity(string id)
+  public void UpdateData(string id, PostRequest request)
   {
-    Pageable<Level> queryResultsLINQ = _tableClient.Query<Level>(lev => lev.Id == id);
-    Console.WriteLine(id);
-
-    return queryResultsLINQ.First();
-  }
-
-  public void UpdateData(string Id, PostRequest request)
-  {
-      var level = GetLevelEntity(Id);
+      var level = GetOne(id);
       level.Title = JsonConvert.SerializeObject(request.Title);
       level.Prompt = JsonConvert.SerializeObject(request.Prompt);
       level.LevelDifficulty = JsonConvert.SerializeObject(request.LevelDifficulty);
@@ -73,58 +66,28 @@ public class LevelRepository
       level.ExpectedInt = JsonConvert.SerializeObject(request.ExpectedInt);
       level.ExpectedCollection = JsonConvert.SerializeObject(request.ExpectedCollection);
       level.ExpectedSingle = JsonConvert.SerializeObject(request.ExpectedSingle);
-
-    _tableClient.UpdateEntity(level, ETag.All, TableUpdateMode.Merge);
+      _tableClient.UpdateEntity(level, ETag.All, TableUpdateMode.Merge);
   }
 
-  public List<GetResponse> GetAllData()
-  {
-    var levels = _tableClient.Query<Level>();
-    var listOfLevels = new List<GetResponse>();
+  public List<Level> GetAll() 
+    => _tableClient.Query<Level>().ToList();
 
-    foreach (var level in levels)
-    {
-      listOfLevels.Add(
-        new GetResponse()
-        {
-          Id = level.Id,
-          Title = level.Title,
-          LevelDifficulty = JsonConvert.DeserializeObject<int>(level.LevelDifficulty),
-          Prompt = level.Prompt,
-          Description = level.Description,
-          StartCollection = JsonConvert.DeserializeObject<List<ShapeModel>>(level.StartCollection),
-          ExpectedBool = JsonConvert.DeserializeObject<bool?>(level.ExpectedBool),
-          ExpectedInt = JsonConvert.DeserializeObject<int?>(level.ExpectedInt),
-          ExpectedCollection = JsonConvert.DeserializeObject<List<ShapeModel>?>(level.ExpectedCollection),
-          ExpectedSingle = JsonConvert.DeserializeObject<ShapeModel?>(level.ExpectedSingle)
-        }
-      );
-    }
-    return listOfLevels;
-  }
+  public Level GetOne(string id) 
+    => _tableClient.Query<Level>(lev => lev.Id == id).First();
 
-  public GetResponse GetData(string id)
-  {
-    Pageable<Level> queryResultsLINQ = _tableClient.Query<Level>(lev => lev.Id == id);
+  public void Delete(string id) 
+    => _tableClient.DeleteEntity(_partitionKey, id);
 
-    var level = queryResultsLINQ.First();
-    return new GetResponse()
-    {
-      Id = level.Id,
-      Title = level.Title,
-      LevelDifficulty = JsonConvert.DeserializeObject<int>(level.LevelDifficulty),
-      Prompt = level.Prompt,
-      Description = level.Description,
-      StartCollection = JsonConvert.DeserializeObject<List<ShapeModel>>(level.StartCollection),
-      ExpectedBool = JsonConvert.DeserializeObject<bool?>(level.ExpectedBool),
-      ExpectedInt = JsonConvert.DeserializeObject<int?>(level.ExpectedInt),
-      ExpectedCollection = JsonConvert.DeserializeObject<List<ShapeModel>?>(level.ExpectedCollection),
-      ExpectedSingle = JsonConvert.DeserializeObject<ShapeModel?>(level.ExpectedSingle)
-    };
-  }
-  public void DeleteData(string id)
-  {
-    _tableClient.DeleteEntity(_partitionKey, id);
-  }
-
+  public GetResponse DeserializeLevel(Level level) => new GetResponse() {
+    Id = level.Id,
+    Title = level.Title,
+    LevelDifficulty = level.LevelDifficulty,
+    Prompt = level.Prompt,
+    Description = level.Description,
+    StartCollection = JsonConvert.DeserializeObject<List<ShapeModel>>(level.StartCollection),
+    ExpectedBool = JsonConvert.DeserializeObject<bool?>(level.ExpectedBool),
+    ExpectedInt = JsonConvert.DeserializeObject<int?>(level.ExpectedInt),
+    ExpectedCollection = JsonConvert.DeserializeObject<List<ShapeModel>?>(level.ExpectedCollection),
+    ExpectedSingle = JsonConvert.DeserializeObject<ShapeModel?>(level.ExpectedSingle)
+  };
 }
