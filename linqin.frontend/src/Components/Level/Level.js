@@ -17,12 +17,14 @@ function Level({ level }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     submitAnswer();
   };
 
   const submitAnswer = () => {
     if (level == null)
       return;
+    console.log(level.description);
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -137,7 +139,7 @@ function Level({ level }) {
   return (
     <div className='Level'>
       {/* <PropertyList shapes={ level.startCollection } /> */ }
-      <h3 className='Level__Title'>{ level.title } <DescriptionButton level={ level } /></h3>
+      <h3 className='Level__Title'>{ level.title } { level.description !== '' ? <DescriptionButton level={ level } /> : null }</h3>
       <p className='Level__Prompt'>{ level.prompt }</p>
       <div className='Level__Content'>
         <div>
