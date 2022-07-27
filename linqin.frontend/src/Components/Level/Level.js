@@ -141,7 +141,7 @@ function Level({ level }) {
       <p className='Level__Prompt'>{ level.prompt }</p>
       <div className='Level__Content'>
         <div>
-          <Collection shapes={ level.startCollection } shaded='' />
+          <Collection shapes={ level.startCollection } shaded='' animated=' animated' />
         </div>
         <form className='Level__InputBit' onSubmit={ e => handleSubmit(e) }>
           <p className="preInput">shapes.</p>
@@ -150,8 +150,8 @@ function Level({ level }) {
         <p>{ compileError }</p>
         <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
       </div>
-      <Result result={ expectedResult } shaded='shaded' />
-      <Result result={ queryResult } shaded='' />
+      <Result result={ expectedResult } shaded='shaded' animated='' />
+      <Result result={ queryResult } shaded='' animated='' />
     </div>
   );
 }

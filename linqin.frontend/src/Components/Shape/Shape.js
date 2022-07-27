@@ -5,7 +5,7 @@ import square from '../../Images/Square.svg';
 import ReactCardFlip from 'react-card-flip';
 import triangle from '../../Images/Triangle.svg';
 
-function Shape({ shape, shaded }) {
+function Shape({ shape, shaded, animated }) {
 
   const chooseImage = () => {
     if (shape.shape === 'Circle') {
@@ -28,20 +28,18 @@ function Shape({ shape, shaded }) {
     setIsFlipped(false);
   };
   return (
-    <>
-      <ReactCardFlip isFlipped={ isFlipped } flipDirection="horizontal">
-        <div className='Shape__Card--Front'>
+    <div className={ `Container` } >
+      < div className={ `Card${animated}` } >
+        <div className={ `Face Front${animated}` }>
           <img className={ `Level__Shape--${shape.color} ${shaded}` } src={ chooseImage(shape) } alt='A circle' />
-          <button className='Shape__Card--FlipButton' onPointerEnter={ handleClick }></button>
         </div>
-        <div className='Shape__Card--Back'>
+        <div className='Face Back'>
           <img className={ `Level__Shape--${shape.color} large` } src={ chooseImage(shape) } alt='A circle' />
           <p className='Properties__Property'>.Shape = "{ shape.shape }"</p>
           <p className='Properties__Property'>.Color = "{ shape.color }"</p>
-          <button className='Shape__Card--FlipButton' onPointerLeave={ handleOtherClick }></button>
         </div>
-      </ReactCardFlip>
-    </>
+      </div >
+    </div >
   );
 }
-export default Shape;
+export default Shape;;

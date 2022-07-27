@@ -4,13 +4,13 @@ import Shape from '../Shape/Shape';
 import './Result.css';
 
 
-function Result({ result, shaded }) {
+function Result({ result, shaded, animated }) {
   const [resultHtml, setResultHtml] = useState('');
   useEffect(() => {
 
     if (Array.isArray(result)) {
       setResultHtml(
-        <Collection shapes={ result } shaded={ shaded } />
+        <Collection shapes={ result } shaded={ shaded } animated={ animated } />
       );
       return;
     }
@@ -42,7 +42,7 @@ function Result({ result, shaded }) {
       setResultHtml(
         <div>
           <div className='Result__Container'>
-            <Shape shape={ result } shaded={ shaded } large='' />
+            <Shape shape={ result } shaded={ shaded } animated={ animated } large='' />
           </div>
         </div>
       );

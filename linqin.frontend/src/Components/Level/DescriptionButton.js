@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import InfoIcon from '@mui/icons-material/Info';
-import ReactCardFlip from 'react-card-flip';
 import './DescriptionButton.css';
 
 const style = {
