@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Linqin.DB.Models;
 using Linqin.DB.Data;
-using Newtonsoft.Json;
+
 
 namespace Linqin.DB.Controllers
 {
@@ -22,88 +16,62 @@ namespace Linqin.DB.Controllers
       _storage = new LevelRepository();
     }
 
-    // GET: Levels
-    // public async Task<IActionResult> Index()
-    // {
-    //   return _context.Level != null ?
-    //               View(await _context.Level.ToListAsync()) :
-    //               Problem("Entity set 'LevelContext.Level'  is null.");
-    // }
-
-    // GET: Levels/Details/5
-    // public async Task<IActionResult> Details(int? id)
-    // {
-    //   if (id == null || _context.Level == null)
-    //   {
-    //     return NotFound();
-    //   }
-
-    //   var level = await _context.Level
-    //       .FirstOrDefaultAsync(m => m.Id == id);
-    //   if (level == null)
-    //   {
-    //     return NotFound();
-    //   }
-
-    //   return View(level);
-    // }
-
-    // GET: Levels/Create
-    // public IActionResult Create()
-    // {
-    //   return View();
-    // }
-
-    // POST: Levels/Create
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-
     [HttpGet("{id}")]
-    public async Task<ActionResult<GetResponse>> GetOneLevel(string id)
+    public ActionResult<GetResponse> GetLevel(string id)
     {
-      return Ok(_storage.GetData(id));
+      var level = _storage.GetOne(id);
+
+      if (level == null)
+        return StatusCode(400);
+
+      _storage.DeserializeLevel(level);
+      return Ok(level);
     }
 
-    // GET: Levels/Edit/5
     [HttpGet]
-    public async Task<ActionResult<List<GetResponse>>> GetAllLevels()
+    public ActionResult<List<GetResponse>> GetLevels()
     {
-      return Ok(_storage.GetAllData());
-      // if (id == null || _context.Level == null)
-      // {
-      //   return NotFound();
-      // }
+      var levels = _storage.GetAll();
+      var listOfLevels = new List<GetResponse>();
 
-      // var level = await _context.Level.FindAsync(id);
-      // if (level == null)
-      // {
-      //   return NotFound();
-      // }
-      // return View(level);
+    foreach (var level in levels)
+    {
+      if(level != null)
+        listOfLevels.Add(_storage.DeserializeLevel(level));
     }
 
-    [HttpDelete("{Id}")]
-    public IActionResult DeleteLevel(string Id)
+      return Ok(listOfLevels);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteLevel(string id)
     {
-      _storage.DeleteData(Id);
+      var level = _storage.GetOne(id);
+
+      if (level == null)
+        return StatusCode(400);
+
+      _storage.Delete(id);
       return NoContent();
     }
 
     [HttpPut]
-    public IActionResult UpdateLevel(string Id, PostRequest request)
+    public IActionResult UpdateLevel(string id, PostRequest request)
     {
-      _storage.UpdateData(Id, request);
+      var level = _storage.GetOne(id);
+      
+      if (level == null)
+        return StatusCode(400);
 
+      _storage.UpdateData(id, request);
       return NoContent();
     }
 
-
     [HttpPost]
-    //[ValidateAntiForgeryToken]
-    public async Task<ActionResult> Create(PostRequest request)
+    public IActionResult CreateLevel(PostRequest request)
     {
-      var id = _storage.AddData(request);
-      return CreatedAtAction(nameof(GetOneLevel), new { id = id }, request);
+      var levelId = _storage.AddData(request);
+      return CreatedAtAction(nameof(GetLevel), new { id = levelId }, request);
     }
   }
 }
