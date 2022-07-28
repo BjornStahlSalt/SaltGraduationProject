@@ -12,14 +12,32 @@ using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace LinqCompiler
 {
   public static class Compiler
   {
 
-    public static async Task<ResponsePost> ExecuteString(string linqQuery, IEnumerable<ShapeModel> startCollection)
+    public static void ValidateString(string str)
     {
+      if (str.Contains("while") ||
+        str.Contains("for") ||
+        str.Contains("forEach") ||
+        str.Contains("ForEach") ||
+        str.Contains("Range") ||
+        str.Contains("MaxValue") ||
+        str.Contains("MinValue") ||
+        str.Contains("Infinity")
+        )
+        throw new Exception("Something went wrong.");
+
+
+    }
+    public static ResponsePost ExecuteString(string linqQuery, IEnumerable<ShapeModel> startCollection)
+    {
+      ValidateString(linqQuery);
+
       string code = "using System;" +
         "using System.IO;" +
         "using System.Collections.Generic;" +
