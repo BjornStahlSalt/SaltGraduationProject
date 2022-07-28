@@ -6,12 +6,13 @@ import Result from '../Result/Result.js';
 import DescriptionButton from './DescriptionButton.js';
 
 
-function Level({ level }) {
+function Level({ level, handleNextClick, handlePrevClick }) {
   const [userInput, setUserInput] = useState("");
   const [compileError, setCompileError] = useState("");
   const [queryResult, setQueryResult] = useState([]);
   const [expectedResult, setExpectedResult] = useState([]);
   const [loading, setLoading] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +35,7 @@ function Level({ level }) {
       }),
     };
 
-    fetch('https://localhost:7003/api/Inputs', requestOptions)
+    fetch('https://linqinapi.azurewebsites.net/api/Inputs', requestOptions)
       .then(response => response.json())
       .then(setLoading(true))
       .then(response => {
@@ -168,22 +169,29 @@ function Level({ level }) {
 
   return (
     <div className='Level'>
-      {/* <PropertyList shapes={ level.startCollection } /> */ }
-      <h3 className='Level__Title'>{ level.title } { level.description !== '' ? <DescriptionButton level={ level } /> : null }</h3>
-      <p className='Level__Prompt'>{ level.prompt }</p>
+      {/* <PropertyList shapes={ level.startCollection } /> */}
+      <h3 className='Level__Title'>{level.title} {level.description !== '' ? <DescriptionButton level={level} /> : null}</h3>
+      <p className='Level__Prompt'>{level.prompt}</p>
       <div className='Level__Content'>
         <div>
-          <Collection shapes={ level.startCollection } shaded='' animated=' animated' />
+          <Collection shapes={level.startCollection} shaded='' animated=' animated' />
         </div>
-        <form className='Level__InputBit' onSubmit={ e => handleSubmit(e) }>
+        <form className='Level__InputBit' onSubmit={e => handleSubmit(e)}>
           <p className="preInput">shapes.</p>
-          <input type='text' className="Level__InputForm" value={ userInput } onChange={ e => updateInput(e) } />
+          <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
         </form>
+<<<<<<< HEAD
         <p>{ compileError }</p>
         <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
+        <Button onClick={ handlePrevClick }>Prev</Button>
+        <Button onClick={ handleNextClick }>Next</Button>
+=======
+        <p>{compileError}</p>
+        <SubmitButton className="Level__Button--Submit" submitAnswer={submitAnswer} loading={loading} compileError={compileError} />
+>>>>>>> 1dd7ad6da1ef9b3ac4702c42b926e4d035e9da11
       </div>
-      <Result result={ expectedResult } shaded='shaded' animated='' />
-      <Result result={ queryResult } shaded='' animated='' />
+      <Result result={expectedResult} shaded='shaded' animated='' />
+      <Result result={queryResult} shaded='' animated='' />
     </div>
   );
 }

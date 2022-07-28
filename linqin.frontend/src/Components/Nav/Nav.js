@@ -12,7 +12,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
-
 import './Nav.css';
 import { ListItemIcon } from '@mui/material';
 
