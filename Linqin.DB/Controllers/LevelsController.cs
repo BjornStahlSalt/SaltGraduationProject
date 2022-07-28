@@ -31,14 +31,14 @@ namespace Linqin.DB.Controllers
     [HttpGet]
     public ActionResult<List<GetResponse>> GetLevels()
     {
-      var levels = _storage.GetAll();
+      var levels = _storage.GetAll().OrderBy(l => l.LevelDifficulty);
       var listOfLevels = new List<GetResponse>();
 
-    foreach (var level in levels)
-    {
-      if(level != null)
-        listOfLevels.Add(_storage.DeserializeLevel(level));
-    }
+      foreach (var level in levels)
+      {
+        if (level != null)
+          listOfLevels.Add(_storage.DeserializeLevel(level));
+      }
 
       return Ok(listOfLevels);
     }
@@ -59,7 +59,7 @@ namespace Linqin.DB.Controllers
     public IActionResult UpdateLevel(string id, PostRequest request)
     {
       var level = _storage.GetOne(id);
-      
+
       if (level == null)
         return StatusCode(400);
 
