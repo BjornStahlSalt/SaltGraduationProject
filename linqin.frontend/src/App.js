@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className='Page'>
-      <Nav levels={orderedLevelsArray} handleTitleClick={handleTitleClick} handleHomeClick={handleHomeClick} />
+      <Nav levels={levels} handleTitleClick={handleTitleClick} handleHomeClick={handleHomeClick} />
       <div className='Page__Content'>
         {currentLevel === null ? <Home levels={levels} setCurrentLevel={setCurrentLevel} /> : <Level level={currentLevel} handleNextClick={handleNextClick} handlePrevClick={handlePrevClick} />}
       </div>

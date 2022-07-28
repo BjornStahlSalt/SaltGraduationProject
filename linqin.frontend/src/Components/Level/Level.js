@@ -4,6 +4,7 @@ import SubmitButton from './SubmitButton';
 import './Level.css';
 import Result from '../Result/Result.js';
 import DescriptionButton from './DescriptionButton.js';
+import { Button } from '@mui/material';
 
 
 function Level({ level, handleNextClick, handlePrevClick }) {
@@ -180,15 +181,10 @@ function Level({ level, handleNextClick, handlePrevClick }) {
           <p className="preInput">shapes.</p>
           <input type='text' className="Level__InputForm" value={userInput} onChange={e => updateInput(e)} />
         </form>
-<<<<<<< HEAD
         <p>{ compileError }</p>
         <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
         <Button onClick={ handlePrevClick }>Prev</Button>
         <Button onClick={ handleNextClick }>Next</Button>
-=======
-        <p>{compileError}</p>
-        <SubmitButton className="Level__Button--Submit" submitAnswer={submitAnswer} loading={loading} compileError={compileError} />
->>>>>>> 1dd7ad6da1ef9b3ac4702c42b926e4d035e9da11
       </div>
       <Result result={expectedResult} shaded='shaded' animated='' />
       <Result result={queryResult} shaded='' animated='' />
