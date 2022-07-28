@@ -91,7 +91,7 @@ public class CSharpCompilerTests // controller, coderunner, fiddleclient
   [InlineData("Where(x => {var t = Enumerable.Range(1,100);.ToList().ForEach(() =>{}) return false;});")]
   [InlineData("Where(x => {var t = forEach(int i int int[]{1,2}){} return false;});")]
   [InlineData("Where(x => {var t = var t = List<int>{1,2}.ForEach(()=>{}) return false;});")]
-  [InlineData("kjad.Rangekajda")]
+  [InlineData("What is this gibberish_dll")]
   [InlineData("kadasForEachlajd")]
   [InlineData("hlhad.MaxValuealk")]
   [InlineData("hlhad.MinValuealk")]
