@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
 import SubmitButton from './SubmitButton';
 import './Level.css';
-import PropertyList from '../ProperyList/PropertyList.js';
 import Result from '../Result/Result.js';
 import { Button } from '@mui/material';
 import DescriptionButton from './DescriptionButton.js';
 
 
-function Level({ level }) {
+function Level({ level, handleNextClick, handlePrevClick }) {
   const [userInput, setUserInput] = useState("");
   const [compileError, setCompileError] = useState("");
   const [queryResult, setQueryResult] = useState([]);
   const [expectedResult, setExpectedResult] = useState([]);
   const [loading, setLoading] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -151,6 +151,8 @@ function Level({ level }) {
         </form>
         <p>{ compileError }</p>
         <SubmitButton className="Level__Button--Submit" submitAnswer={ submitAnswer } loading={ loading } compileError={ compileError } />
+        <Button onClick={ handlePrevClick }>Prev</Button>
+        <Button onClick={ handleNextClick }>Next</Button>
       </div>
       <Result result={ expectedResult } shaded='shaded' animated='' />
       <Result result={ queryResult } shaded='' animated='' />
