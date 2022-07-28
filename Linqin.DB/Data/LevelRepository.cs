@@ -48,7 +48,8 @@ public class LevelRepository
       { "ExpectedBool", JsonConvert.SerializeObject(request.ExpectedBool) },
       { "ExpectedInt", JsonConvert.SerializeObject(request.ExpectedInt) },
       { "ExpectedCollection", JsonConvert.SerializeObject(request.ExpectedCollection) },
-      { "ExpectedSingle", JsonConvert.SerializeObject(request.ExpectedSingle) }
+      { "ExpectedSingle", JsonConvert.SerializeObject(request.ExpectedSingle) },
+      { "ExpectedString", JsonConvert.SerializeObject(request.ExpectedString) }
       };
     _tableClient.AddEntity(entity);
     return rowKey;
@@ -56,29 +57,31 @@ public class LevelRepository
 
   public void UpdateData(string id, PostRequest request)
   {
-      var level = GetOne(id);
-      level.Title = JsonConvert.SerializeObject(request.Title);
-      level.Prompt = JsonConvert.SerializeObject(request.Prompt);
-      level.LevelDifficulty = JsonConvert.SerializeObject(request.LevelDifficulty);
-      level.Description = JsonConvert.SerializeObject(request.Description);
-      level.StartCollection = JsonConvert.SerializeObject(request.StartCollection);
-      level.ExpectedBool = JsonConvert.SerializeObject(request.ExpectedBool);
-      level.ExpectedInt = JsonConvert.SerializeObject(request.ExpectedInt);
-      level.ExpectedCollection = JsonConvert.SerializeObject(request.ExpectedCollection);
-      level.ExpectedSingle = JsonConvert.SerializeObject(request.ExpectedSingle);
-      _tableClient.UpdateEntity(level, ETag.All, TableUpdateMode.Merge);
+    var level = GetOne(id);
+    level.Title = JsonConvert.SerializeObject(request.Title);
+    level.Prompt = JsonConvert.SerializeObject(request.Prompt);
+    level.LevelDifficulty = JsonConvert.SerializeObject(request.LevelDifficulty);
+    level.Description = JsonConvert.SerializeObject(request.Description);
+    level.StartCollection = JsonConvert.SerializeObject(request.StartCollection);
+    level.ExpectedBool = JsonConvert.SerializeObject(request.ExpectedBool);
+    level.ExpectedInt = JsonConvert.SerializeObject(request.ExpectedInt);
+    level.ExpectedCollection = JsonConvert.SerializeObject(request.ExpectedCollection);
+    level.ExpectedSingle = JsonConvert.SerializeObject(request.ExpectedSingle);
+    level.ExpectedString = JsonConvert.SerializeObject(request.ExpectedString);
+    _tableClient.UpdateEntity(level, ETag.All, TableUpdateMode.Merge);
   }
 
-  public List<Level> GetAll() 
+  public List<Level> GetAll()
     => _tableClient.Query<Level>().ToList();
 
-  public Level GetOne(string id) 
+  public Level GetOne(string id)
     => _tableClient.Query<Level>(lev => lev.Id == id).First();
 
-  public void Delete(string id) 
+  public void Delete(string id)
     => _tableClient.DeleteEntity(_partitionKey, id);
 
-  public GetResponse DeserializeLevel(Level level) => new GetResponse() {
+  public GetResponse DeserializeLevel(Level level) => new GetResponse()
+  {
     Id = level.Id,
     Title = level.Title,
     LevelDifficulty = level.LevelDifficulty,
@@ -88,6 +91,7 @@ public class LevelRepository
     ExpectedBool = JsonConvert.DeserializeObject<bool?>(level.ExpectedBool),
     ExpectedInt = JsonConvert.DeserializeObject<int?>(level.ExpectedInt),
     ExpectedCollection = JsonConvert.DeserializeObject<List<ShapeModel>?>(level.ExpectedCollection),
-    ExpectedSingle = JsonConvert.DeserializeObject<ShapeModel?>(level.ExpectedSingle)
+    ExpectedSingle = JsonConvert.DeserializeObject<ShapeModel?>(level.ExpectedSingle),
+    ExpectedString = JsonConvert.DeserializeObject<List<string>?>(level.ExpectedString),
   };
 }

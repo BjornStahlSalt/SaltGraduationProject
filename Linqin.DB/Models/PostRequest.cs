@@ -10,8 +10,10 @@ public class PostRequest
   public string? Prompt { get; set; }
   public string? Description { get; set; }
   public List<ShapeModel>? StartCollection { get; set; }
-  public bool? ExpectedBool { get; set; } = null; 
-  public int? ExpectedInt { get; set; } = null; 
-  public List<ShapeModel>? ExpectedCollection { get; set; } = null; 
-  public ShapeModel? ExpectedSingle { get; set; } = null; 
+  public bool? ExpectedBool { get; set; } = null;
+  public int? ExpectedInt { get; set; } = null;
+  public List<ShapeModel>? ExpectedCollection { get; set; } = null;
+  public ShapeModel? ExpectedSingle { get; set; } = null;
+  public List<string>? ExpectedString { get; set; }
+
 }

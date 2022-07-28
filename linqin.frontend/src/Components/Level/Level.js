@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
 import SubmitButton from './SubmitButton';
 import './Level.css';
-import PropertyList from '../ProperyList/PropertyList.js';
 import Result from '../Result/Result.js';
-import { Button } from '@mui/material';
 import DescriptionButton from './DescriptionButton.js';
 
 
@@ -42,7 +40,7 @@ function Level({ level }) {
       .then(response => {
         if (response.errorMessage === null) {
           console.log(response.listOfShapes);
-          checkAnswer(level.expectedCollection, response.listOfShapes);
+          checkAnswer(expectedResult, response.listOfShapes);
           setLoading(false);
         }
         else {
@@ -54,9 +52,40 @@ function Level({ level }) {
       .catch(error => console.log(error));
   };
 
+  function isString(val) {
+    return (typeof val === "string");
+  }
+  function isStrArray(val) {
+    return Array.isArray(val) && val.every(isString);
+  }
+
   const checkAnswer = (expected, result) => {
+    if (Array.isArray(result) && isStrArray(result)) {
+      console.log('We got an array of strings');
+
+      const expectedList = expected;
+      const resultList =  result;
+      console.log(JSON.stringify(expectedList));
+      console.log(JSON.stringify(resultList));
+
+      if (JSON.stringify(expectedList) === JSON.stringify(resultList)) {
+        console.log("correct");
+        console.log("wrong");
+        setCompileError('Correct!!');
+        localStorage.setItem(level.title, JSON.stringify(true));
+      }
+      else {
+        console.log("correct2");
+        console.log("wrong2");
+        setCompileError('Wrong Answer!');
+      }
+      setQueryResult(resultList);
+
+      return;
+    }
+
     if (Array.isArray(result)) {
-      console.log('We got an array');
+      console.log('We got an array of objects');
 
       const expectedList = expected.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
       const resultList = result.map(s => ({ shape: s.shape, color: s.color, priorityValue: s.priorityValue }));
@@ -91,7 +120,6 @@ function Level({ level }) {
       return;
     }
 
-
     console.log('Could not read response');
   };
 
@@ -106,14 +134,16 @@ function Level({ level }) {
     setUserInput('');
     setCompileError('');
 
-    console.log('Here');
     if (level) {
-      console.log('There');
-      console.log(level);
+      console.log(level.expectedString);
 
       let temp = expectedResult;
-      if (Array.isArray(level.expectedCollection) && level.expectedCollection) {
-        console.log('expected array');
+      if (Array.isArray(level.expectedString) && level.expectedString) {
+        console.log('expected array of strings');
+        temp = level.expectedString;
+      }
+      else if (Array.isArray(level.expectedCollection) && level.expectedCollection) {
+        console.log('expected array of objects');
         temp = level.expectedCollection;
       }
       else if (level.expectedInt) {

@@ -12,7 +12,7 @@ function App() {
   const [currentLevel, setCurrentLevel] = useState(null);
 
   useEffect(() => {
-    fetch('https://linqindb.azurewebsites.net/api/Levels')
+    fetch('https://localhost:7186/api/Levels')
       .then(response => response.json())
       .then(data => setLevels(data));
   }, []);

@@ -21,4 +21,5 @@ public class Level : ITableEntity
   public string? ExpectedInt { get; set; }
   public string? ExpectedCollection { get; set; }
   public string? ExpectedSingle { get; set; }
+  public string? ExpectedString { get; set; }
 }

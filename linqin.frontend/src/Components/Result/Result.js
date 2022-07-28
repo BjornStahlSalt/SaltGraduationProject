@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Collection from '../Collection/Collection.js';
+import StringCollection from '../Collection/StringCollection.js';
 import Shape from '../Shape/Shape';
 import './Result.css';
 
+function isString(val) {
+  return (typeof val === "string");
+}
+function isStrArray(val) {
+  return Array.isArray(val) && val.every(isString);
+}
 
 function Result({ result, shaded, animated }) {
   const [resultHtml, setResultHtml] = useState('');
   useEffect(() => {
+
+    if (isStrArray(result)) {
+      setResultHtml(
+        <StringCollection shapes={ result } shaded={ shaded } animated={ animated } />
+      );
+      return;
+    }
 
     if (Array.isArray(result)) {
       setResultHtml(

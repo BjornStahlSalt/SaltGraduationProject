@@ -15,4 +15,5 @@ public class GetResponse
     public int? ExpectedInt { get; set; } = null; 
     public List<ShapeModel>? ExpectedCollection { get; set; } = null;
     public ShapeModel? ExpectedSingle { get; set; } = null;
+    public List<string>? ExpectedString { get; set; }
 }
