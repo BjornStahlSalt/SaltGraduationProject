@@ -10,11 +10,11 @@ public class InputsController : ControllerBase
 {
 
   [HttpPost]
-  public async Task<ActionResult<ResponsePost>> ExecuteLinqQuery(RequestPost linqQuery)
+  public ActionResult<ResponsePost> ExecuteLinqQuery(RequestPost linqQuery)
   {
     try
     {
-      return Ok(await Compiler.ExecuteString(linqQuery.Query, linqQuery.listOfShapes));
+      return Ok(Compiler.ExecuteString(linqQuery.Query, linqQuery.listOfShapes));
     }
     catch (Exception ex)
     {
