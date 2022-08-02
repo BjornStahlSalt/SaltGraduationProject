@@ -1,5 +1,6 @@
 .Level__Description {
-    position: absolute;
-    bottom: 40%;
-    left: 90%;
+  width: 1%;
+  padding-bottom: 4rem;
+  justify-content: left;
+  display: flex;
 }

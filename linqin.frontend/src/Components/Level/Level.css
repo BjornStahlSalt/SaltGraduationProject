@@ -1,66 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap");
 
 .Level {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  width: 100%;
-  min-height: 100vh;
+  margin: auto;
+  justify-content: center;
+  height: 70vh;
+  position: relative;
 }
 
 .Level__Title {
   font-size: 50px;
-  margin: 6rem 0 2rem 0;
-  font-family: 'IBM Plex Mono', monospace;
-  position: relative;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .Level__Prompt {
   margin-top: 0;
   margin-bottom: 3rem;
   font-size: 22px;
+  width: 100%;
 }
 
 .Level__Content {
-  width: 100%;
-  justify-content: center;
-}
-
-.Level__InputBit {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  background-color: white;
-  margin-left: 5px;
-  width: 90%;
+  flex-direction: column;
+  vertical-align: top;
 }
 
-.Level__InputForm {
+.Level__FormContainer {
+  display: flex;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  height: 14rem;
+}
+
+.Level__Form {
   height: 2em;
-  flex-basis: 90%;
+  width: 90%;
   text-align: left;
   padding-left: 5px;
   font-size: 22px;
+  margin: auto;
 }
 
-.Level__InputForm:focus {
+.Level__Form:focus {
   outline: none;
 }
 
 .preInput {
   background-color: rgba(0, 0, 0, 0);
   border: none;
-  margin: auto;
-  margin-left: 0px;
-  flex-basis: 10%;
   font-size: 22px;
   text-align: right;
+  height: 2rem;
   padding-right: 5px;
+  margin: auto;
+}
+.Level__Button--Submit {
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
-.Level__InputBit {
-  display: flex;
-  flex-direction: row;
-  width: 90%;
-  background-color: rgba(0, 0, 0, 0);
+.Level__CompileError {
+  height: 8rem;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+}
 
+.Level__CompileErrorText {
+  height: fit-content;
+  margin: auto;
+  width: fit-content;
+  overflow: hidden;
+}
+
+.Level__ResultContainer {
+  height: 9rem;
+  width: 53rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border: solid black 2px;
 }

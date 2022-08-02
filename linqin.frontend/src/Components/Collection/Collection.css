@@ -1,50 +1,77 @@
 .Level__Collection {
   display: flex;
   flex-direction: row;
-  justify-content: left;
-  margin-bottom: 1.5rem;
-  margin-left: 25%;
-  margin-right: auto;
-  position: relative;
-  right: 50px
+  justify-content: center;
+  width: 56rem;
+  margin-bottom: 2.5rem;
 }
 
-img {
+.Level__Collectionshaded,
+.Level__Collectionquery {
+  display: flex;
+  flex-direction: row;
+}
+
+.Level__StringCollectionquery,
+.Level__StringCollectionshaded {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+}
+
+.Level__StringCollectionshaded p {
+  opacity: 0.3;
+}
+
+.Level__StringCollectionquery p,
+.Level__StringCollectionshaded p {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  font-size: 55px;
+}
+
+.Level__Collectionquery img {
+  width: 105px;
+  margin-right: 5rem;
+}
+
+.Level__Collectionshaded img {
+  width: 105px;
+  margin-right: 5rem;
+}
+
+.Level__Collection img {
   margin: 5px;
   aspect-ratio: 1/1;
   width: 70%;
-  position: relative;
-  bottom: 8px
+  bottom: 8px;
+}
+
+.Properties__Property {
+  margin: 0;
+  font-size: medium;
+  text-align: center;
 }
 
 .Level__Shape--Green {
-  justify-content: left;
-  filter: invert(72%) sepia(100%) saturate(3000%) hue-rotate(70deg) brightness(70%) contrast(100%);
+  filter: invert(72%) sepia(100%) saturate(3000%) hue-rotate(70deg)
+    brightness(70%) contrast(100%);
 }
 
 .Level__Shape--Blue {
-  justify-content: left;
-  filter: invert(40%) sepia(80%) saturate(7450%) hue-rotate(250deg) brightness(70%) contrast(142%);
+  filter: invert(40%) sepia(80%) saturate(7450%) hue-rotate(250deg)
+    brightness(70%) contrast(142%);
 }
 
 .Level__Shape--Red {
-  justify-content: left;
-  filter: invert(40%) sepia(85%) saturate(7069%) hue-rotate(-40deg) brightness(70%) contrast(113%);
+  filter: invert(40%) sepia(85%) saturate(7069%) hue-rotate(-40deg)
+    brightness(70%) contrast(113%);
 }
 
 .shaded {
   opacity: 0.3;
-  justify-content: left;
-}
-
-.Level__Collectionshaded {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  margin-bottom: -100%;
-  margin-left: 25%;
-  margin-right: auto;
-  margin-top: 7rem;
 }
 
 .Shape__Card--Front {
@@ -62,19 +89,19 @@ img {
   position: relative;
   width: 140px;
   height: 100px;
-  background-color: rgba(114, 114, 114, 0.2);
+  background: linear-gradient(
+    to right,
+    #eaeaea,
+    #dbdbdb,
+    #f2f2f2,
+    #ada996
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border: solid;
   border-color: rgba(255, 255, 255, 0.154);
   margin-right: 5px;
   box-shadow: 0 0 5px #2e2e2e;
   border-radius: 7px;
-
-}
-
-.Properties__Property {
-  margin: 0;
-  font-size: medium;
-  text-align: center;
 }
 
 .Shape__Card--FlipButton {

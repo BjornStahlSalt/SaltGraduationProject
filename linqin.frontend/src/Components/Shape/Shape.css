@@ -1,13 +1,12 @@
 .large {
   width: 40%;
-
 }
 
 .Container {
   width: 1000px;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .Container .Card {

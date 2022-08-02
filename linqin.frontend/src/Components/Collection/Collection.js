@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import Shape from '../Shape/Shape';
-import ReactCardFlip from 'react-card-flip';
-import './Collection.css';
+import React, { useState, useEffect } from "react";
+import Shape from "../Shape/Shape";
+import ReactCardFlip from "react-card-flip";
+import "./Collection.css";
 
-
-function Collection({ shapes, shaded, animated }) {
-
+function Collection({ shapes, shaded, query, animated }) {
   return (
-    <div>
-      <div className={ `Level__Collection${shaded}` }>{ shapes.map((s, i) =>
-        <Shape key={ i } shape={ s } shaded={ shaded } animated={ animated } />
-      ) }
-      </div>
+    <div className={`Level__Collection${shaded}${query}`}>
+      {shapes.map((s, i) => (
+        <Shape key={i} shape={s} shaded={shaded} animated={animated} />
+      ))}
     </div>
   );
 }
