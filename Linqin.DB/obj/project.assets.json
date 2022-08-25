@@ -9816,19 +9816,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/saltdev/.nuget/packages/": {}
+    "/Users/sarakhabazbashi/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
+      "projectUniqueName": "/Users/sarakhabazbashi/Projects/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
       "projectName": "Linqin.DB",
-      "projectPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
-      "packagesPath": "/Users/saltdev/.nuget/packages/",
-      "outputPath": "/Users/saltdev/Documents/GraduationProject/SaltGraduationProject/Linqin.DB/obj/",
+      "projectPath": "/Users/sarakhabazbashi/Projects/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
+      "packagesPath": "/Users/sarakhabazbashi/.nuget/packages/",
+      "outputPath": "/Users/sarakhabazbashi/Projects/GraduationProject/SaltGraduationProject/Linqin.DB/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/saltdev/.nuget/NuGet/NuGet.Config"
+        "/Users/sarakhabazbashi/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -9897,7 +9897,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.105/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
       }
     }
   }
