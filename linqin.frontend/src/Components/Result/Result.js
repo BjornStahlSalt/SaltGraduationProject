@@ -15,6 +15,7 @@ function Result({ result, shaded, query, animated }) {
   const [resultHtml, setResultHtml] = useState("");
 
   useEffect(() => {
+    console.log(result);
     if (isStrArray(result)) {
       setResultHtml(
         <StringCollection

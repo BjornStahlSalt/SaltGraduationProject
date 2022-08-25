@@ -67,6 +67,7 @@
   margin: auto;
   margin-right: 0;
 }
+
 .Level__Button--Submit {
   margin-bottom: 1rem;
   width: 100%;
@@ -90,10 +91,15 @@
 }
 
 .Level__ResultContainer {
-  height: 9rem;
+  height: 6rem;
   width: 53rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+}
+
+.Level__ResultContainer img {
+  width: 105px;
+  margin-right: 5rem;
 }

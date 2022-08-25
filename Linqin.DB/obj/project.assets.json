@@ -9816,24 +9816,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/sarakhabazbashi/.nuget/packages/": {}
+    "C:\\Users\\stahl\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sarakhabazbashi/Projects/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
+      "projectUniqueName": "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.DB\\Linqin.DB.csproj",
       "projectName": "Linqin.DB",
-      "projectPath": "/Users/sarakhabazbashi/Projects/GraduationProject/SaltGraduationProject/Linqin.DB/Linqin.DB.csproj",
-      "packagesPath": "/Users/sarakhabazbashi/.nuget/packages/",
-      "outputPath": "/Users/sarakhabazbashi/Projects/GraduationProject/SaltGraduationProject/Linqin.DB/obj/",
+      "projectPath": "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.DB\\Linqin.DB.csproj",
+      "packagesPath": "C:\\Users\\stahl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.DB\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/sarakhabazbashi/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\stahl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9897,7 +9904,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

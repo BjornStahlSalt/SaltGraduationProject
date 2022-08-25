@@ -15,25 +15,30 @@
 .Level__StringCollectionquery,
 .Level__StringCollectionshaded {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   flex-direction: row;
-  justify-content: center;
-  justify-items: center;
+  /* justify-content: center;
+  justify-items: center; */
 }
 
 .Level__StringCollectionshaded p {
   opacity: 0.3;
+  width: 105px;
 }
 
 .Level__StringCollectionquery p,
 .Level__StringCollectionshaded p {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  width: 105px;
+  /* margin-left: 1.5rem;
+  margin-right: 1.5rem; */
+  margin: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 5rem;
   font-size: 55px;
-  margin-top: 0;
 }
 
-.Level__Collectionquery img {
+/* .Level__Collectionquery img {
   width: 105px;
   margin-right: 5rem;
 }
@@ -41,7 +46,7 @@
 .Level__Collectionshaded img {
   width: 105px;
   margin-right: 5rem;
-}
+} */
 
 .Level__Collection img {
   margin: 5px;
@@ -57,18 +62,15 @@
 }
 
 .Level__Shape--Green {
-  filter: invert(72%) sepia(100%) saturate(3000%) hue-rotate(70deg)
-    brightness(70%) contrast(100%);
+  filter: invert(72%) sepia(100%) saturate(3000%) hue-rotate(70deg) brightness(70%) contrast(100%);
 }
 
 .Level__Shape--Blue {
-  filter: invert(40%) sepia(80%) saturate(7450%) hue-rotate(250deg)
-    brightness(70%) contrast(142%);
+  filter: invert(40%) sepia(80%) saturate(7450%) hue-rotate(250deg) brightness(70%) contrast(142%);
 }
 
 .Level__Shape--Red {
-  filter: invert(40%) sepia(85%) saturate(7069%) hue-rotate(-40deg)
-    brightness(70%) contrast(113%);
+  filter: invert(40%) sepia(85%) saturate(7069%) hue-rotate(-40deg) brightness(70%) contrast(113%);
 }
 
 .shaded {
@@ -90,13 +92,12 @@
   position: relative;
   width: 140px;
   height: 100px;
-  background: linear-gradient(
-    to right,
-    #eaeaea,
-    #dbdbdb,
-    #f2f2f2,
-    #ada996
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right,
+      #eaeaea,
+      #dbdbdb,
+      #f2f2f2,
+      #ada996);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   border: solid;
   border-color: rgba(255, 255, 255, 0.154);

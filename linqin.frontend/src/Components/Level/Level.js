@@ -21,7 +21,6 @@ function Level({ level, handleNextClick, handlePrevClick }) {
 
   const submitAnswer = () => {
     if (level == null) return;
-    console.log(level.description);
     const requestOptions = {
       method: "POST",
       headers: {
@@ -38,7 +37,6 @@ function Level({ level, handleNextClick, handlePrevClick }) {
       .then(setLoading(true))
       .then((response) => {
         if (response.errorMessage === null) {
-          console.log(response.listOfShapes);
           checkAnswer(expectedResult, response.listOfShapes);
           setLoading(false);
         } else {
@@ -59,12 +57,9 @@ function Level({ level, handleNextClick, handlePrevClick }) {
 
   const checkAnswer = (expected, result) => {
     if (Array.isArray(result) && isStrArray(result)) {
-      console.log("We got an array of strings");
 
       const expectedList = expected;
       const resultList = result;
-      console.log(JSON.stringify(expectedList));
-      console.log(JSON.stringify(resultList));
 
       if (JSON.stringify(expectedList) === JSON.stringify(resultList)) {
         setCompileError("Correct!!");
@@ -78,8 +73,6 @@ function Level({ level, handleNextClick, handlePrevClick }) {
     }
 
     if (Array.isArray(result)) {
-      console.log("We got an array of objects");
-
       const expectedList = expected.map((s) => ({
         shape: s.shape,
         color: s.color,
@@ -103,19 +96,34 @@ function Level({ level, handleNextClick, handlePrevClick }) {
     }
 
     if (typeof result === "number") {
-      console.log("We got a number");
+      if (result == expected) {
+        setCompileError("Correct!!");
+        localStorage.setItem(level.title, JSON.stringify(true));
+      } else {
+        setCompileError("Wrong Answer!");
+      }
       setQueryResult(result);
       return;
     }
 
     if (typeof result === "boolean") {
-      console.log("We got a bool");
+      if (result == expected) {
+        setCompileError("Correct!!");
+        localStorage.setItem(level.title, JSON.stringify(true));
+      } else {
+        setCompileError("Wrong Answer!");
+      }
       setQueryResult(result);
       return;
     }
 
     if (typeof result === "object") {
-      console.log("We got an object");
+      if (JSON.stringify(result) === JSON.stringify(expected)) {
+        setCompileError("Correct!!");
+        localStorage.setItem(level.title, JSON.stringify(true));
+      } else {
+        setCompileError("Wrong Answer!");
+      }
       setQueryResult(result);
       return;
     }
@@ -135,25 +143,20 @@ function Level({ level, handleNextClick, handlePrevClick }) {
     setCompileError("");
 
     if (level) {
-      console.log(level.expectedString);
-
       let temp = expectedResult;
       if (Array.isArray(level.expectedString) && level.expectedString) {
-        console.log("expected array of strings");
         temp = level.expectedString;
       } else if (
         Array.isArray(level.expectedCollection) &&
         level.expectedCollection
       ) {
-        console.log("expected array of objects");
         temp = level.expectedCollection;
       } else if (level.expectedInt) {
         temp = level.expectedInt;
       } else if (level.expectedBool) {
         temp = level.expectedBool;
       } else if (level.expectedSingle) {
-        console.log("expected object");
-        temp = [level.expectedSingle];
+        temp = level.expectedSingle;
       }
       setExpectedResult(temp);
     }

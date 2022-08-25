@@ -6671,32 +6671,39 @@
     ]
   },
   "packageFolders": {
-    "/Users/saltdev/.nuget/packages/": {}
+    "C:\\Users\\stahl\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.Api.Tests\\Linqin.Api.Tests.csproj",
       "projectName": "Linqin.Api.Tests",
-      "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/Linqin.Api.Tests.csproj",
-      "packagesPath": "/Users/saltdev/.nuget/packages/",
-      "outputPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api.Tests/obj/",
+      "projectPath": "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.Api.Tests\\Linqin.Api.Tests.csproj",
+      "packagesPath": "C:\\Users\\stahl\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.Api.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/saltdev/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\stahl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj": {
-              "projectPath": "/Users/saltdev/Documents/salt-labs/SaltGraduationProject/Linqin.Api/Linqin.Api.csproj"
+            "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.Api\\Linqin.Api.csproj": {
+              "projectPath": "C:\\Users\\stahl\\OneDrive\\Desktop\\Salt\\SaltGraduationProject\\Linqin.Api\\Linqin.Api.csproj"
             }
           }
         }
@@ -6751,7 +6758,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
