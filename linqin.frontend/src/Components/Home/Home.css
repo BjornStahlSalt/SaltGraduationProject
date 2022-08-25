@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap");
 
-.Page__Content {
+.Page__ContentHome {
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: 12vh;
+  margin-top: 7vh;
+  margin-bottom: 5vh;
   width: 65vw;
   font-family: "Hind Siliguri", sans-serif;
 }
